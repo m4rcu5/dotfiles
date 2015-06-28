@@ -1,0 +1,10 @@
+#!/bin/sh
+
+# start synergy server
+/usr/bin/synergys -f -d WARNING -n localhost --config ~/.synergy.conf &
+
+# start parcellite
+parcellite &
+
+# start dropbox
+dropbox-cli start
