@@ -248,7 +248,7 @@
 
 [autosuspend]
   appname = xautolock
-  summary = "*sleep*"
+  summary = "*LOCKING*"
   foreground = "#ff3355"
   timeout = 18
   format = "%a <b>:: %s :: %b</b>"
