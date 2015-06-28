@@ -33,6 +33,15 @@ set! privacy.donottrackheader.enabled=true
 
 set! plugins.click_to_play=true
 
+"" hello feature
+set! loop.enabled=false
+set! loop.gettingStarted.seen=true
+
+"" Media Source Extensions
+set! media.mediasource.enabled=true
+set! media.mediasource.mp4.enabled=true
+set! media.mediasource.webm.enabled=true
+
 "" adblock plus
 set! extensions.adblockplus.frameobjects=false
 set! extensions.adblockplus.showinstatusbar=true
