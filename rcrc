@@ -1,1 +1,1 @@
-EXCLUDES="*:*-history *:register-ring *:*cache* COPYING.md README.md LICENSE"
+EXCLUDES="*:*cache* COPYING.md README.md LICENSE"
