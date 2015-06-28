@@ -29,10 +29,10 @@ feh --no-fehbg --no-xinerama --bg-fill "$HOME/images/wallpapers/wallpaper.png" &
 urxvtd -q -o -f &
 
 # start redshift
-[ type redshift ] && redshift &
+[[ $(type redshift) ]] && redshift &
 
 # start xautolock
-[ type xautolock ] && xautolock -time 10 -detectsleep \
+[[ $(type xautolock) ]] && xautolock -time 10 -detectsleep \
     -locker "pkill -USR1 dunst; i3lock -n --image $HOME/images/wallpapers/lock.png; pkill -USR2 dunst" \
     -notify 20 -notifier "notify-send -a xautolock \"LOCKING screen in in 20s\"" &
 
