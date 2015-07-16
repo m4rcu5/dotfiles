@@ -25,8 +25,11 @@ bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu=$dmenu --entry-type
 # start window menu
 bindsym $mod+b exec --no-startup-id quickswitch.py --dmenu=$dmenu
 
-# start i3lock
+# lock screen
 bindsym $mod+l exec xautolock -locknow
+
+# toggle autolocking
+bindsym $mod+Ctrl+l exec xautolock -toggle
 
 # suspend system
 bindsym $mod+Shift+L exec sudo pm-suspend
