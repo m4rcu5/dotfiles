@@ -257,10 +257,11 @@ for_window [instance="pavucontrol"] floating enable;
 for_window [instance="thunar"] floating enable;
 for_window [instance="Msgcompose"] floating enable
 
+for_window [class="Wine"] floating enable
+
+for_window [class="(?i)python" title="dispcalGUI"] floating enable
+
 # float preferences /settings windows
 for_window [title="(?i)preferences"] floating enable;
 for_window [title="(?i)setting"] floating enable;
-
-# autostart file support
-exec ~/.i3/startup
 
