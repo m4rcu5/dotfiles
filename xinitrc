@@ -23,13 +23,16 @@ fi
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 # set background
-feh --no-fehbg --no-xinerama --bg-fill "$HOME/images/wallpapers/wallpaper.png" &
+[[ $(type feh) ]] && feh --no-fehbg --no-xinerama --bg-fill "$HOME/images/wallpapers/wallpaper.png" &
+
+# XDG autostart support
+[[ $(type dex) ]] && dex --autostart --environment none
+
+# start synergy server
+[[ $(type synergys) ]] && synergys -f -n localhost --config ~/.synergy.conf &
 
 # start terminal
-urxvtd -q -o -f &
-
-# start redshift
-[[ $(type redshift) ]] && redshift &
+[[ $(type urxvtd) ]] && urxvtd -q -o -f &
 
 # start xautolock
 [[ $(type xautolock) ]] && xautolock -time 10 -detectsleep \
