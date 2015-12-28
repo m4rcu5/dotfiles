@@ -19,11 +19,16 @@ set! browser.cache.disk_cache_ssl=false
 set! browser.tabs.closeWindowWithLastTab=false
 set! browser.tabs.insertRelatedAfterCurrent=true
 
+set! browser.urlbar.suggest.searches=true
+
 set! browser.download.useDownloadDir=false
 set! browser.download.manager.showWhenStarting=false
 set! browser.download.manager.showAlertOnComplete=true
 
 set! general.warnOnAboutConfig=false
+
+set! devtools.theme=light
+set! lightweightThemes.selectedThemeID=firefox-devedition@mozilla.org
 
 set! view_source.wrap_long_lines=true
 
