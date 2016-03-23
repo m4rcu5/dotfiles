@@ -25,6 +25,8 @@ set! browser.download.useDownloadDir=false
 set! browser.download.manager.showWhenStarting=false
 set! browser.download.manager.showAlertOnComplete=true
 
+set! browser.display.use_system_colors=false
+
 set! general.warnOnAboutConfig=false
 
 set! devtools.theme=light
