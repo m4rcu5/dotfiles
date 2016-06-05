@@ -19,11 +19,18 @@ set! browser.cache.disk_cache_ssl=false
 set! browser.tabs.closeWindowWithLastTab=false
 set! browser.tabs.insertRelatedAfterCurrent=true
 
+set! browser.urlbar.suggest.searches=true
+
 set! browser.download.useDownloadDir=false
 set! browser.download.manager.showWhenStarting=false
 set! browser.download.manager.showAlertOnComplete=true
 
+set! browser.display.use_system_colors=false
+
 set! general.warnOnAboutConfig=false
+
+set! devtools.theme=light
+set! lightweightThemes.selectedThemeID=firefox-devedition@mozilla.org
 
 set! view_source.wrap_long_lines=true
 
@@ -41,11 +48,6 @@ set! loop.gettingStarted.seen=true
 set! media.mediasource.enabled=true
 set! media.mediasource.mp4.enabled=true
 set! media.mediasource.webm.enabled=true
-
-"" adblock plus
-set! extensions.adblockplus.frameobjects=false
-set! extensions.adblockplus.showinstatusbar=true
-set! extensions.adblockplus.showintoolbar=false
 
 "" session manager
 set! extensions.{1280606b-2510-4fe0-97ef-9b5a22eafe30}.backup_on_restart=true
