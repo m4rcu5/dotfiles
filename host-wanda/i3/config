@@ -186,6 +186,3 @@ bar {
 
 # for_window
 for_window [title="Write:.*" class="Thunderbird"] floating enable
-
-# autostart file support
-exec ~/.i3/startup
