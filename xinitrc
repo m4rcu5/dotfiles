@@ -11,6 +11,15 @@ sysmodmap=/etc/X11/Xmodmap
 [ -f $userresources ] && /usr/bin/xrdb -merge $userresources
 [ -f $usermodmap ]    && /usr/bin/xmodmap $usermodmap
 
+# check for hidpi settings
+if [ -e $HOME/.Xresources-hidpi ] ; then
+    /usr/bin/xrdb -merge $HOME/.Xresources-hidpi
+
+    if [[ $(type xrandr) ]] ; then
+        xrandr --dpi $(grep -Po '\.dpi:\s+\K(\d+)$' $HOME/.Xresources-hidpi)
+    fi
+fi
+
 # include xinitrc scripts
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
     for f in /etc/X11/xinit/xinitrc.d/* ; do
