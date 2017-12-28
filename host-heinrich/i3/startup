@@ -1,4 +1,0 @@
-#!/bin/sh
-
-# start synergy server
-/usr/bin/synergys -f -d WARNING -n localhost --config ~/.synergy.conf &
