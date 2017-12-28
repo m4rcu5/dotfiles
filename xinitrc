@@ -32,7 +32,7 @@ fi
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 # set background
-[[ $(type feh) ]] && feh --no-fehbg --no-xinerama --bg-fill "$HOME/images/wallpapers/wallpaper.png" &
+[[ $(type feh) ]] && feh --no-fehbg --no-xinerama --bg-fill "$HOME/Pictures/wallpapers/wallpaper.png" &
 
 # XDG autostart support
 [[ $(type dex) ]] && dex --autostart --environment none
@@ -45,7 +45,7 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 # start xautolock
 [[ $(type xautolock) ]] && xautolock -time 10 -detectsleep \
-    -locker "pkill -USR1 dunst; i3lock -n --image $HOME/images/wallpapers/lock.png; pkill -USR2 dunst" \
+    -locker "pkill -USR1 dunst; i3lock -n --image $HOME/Pictures/wallpapers/lock.png; pkill -USR2 dunst" \
     -notify 20 -notifier "notify-send -a xautolock \"LOCKING screen in in 20s\"" &
 
 # start session
