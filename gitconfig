@@ -2,10 +2,6 @@
 #
 # Based of Mathias’s dotfiles
 
-[user]
-	name = Marcus van Dam
-	email = "(none)"
-
 [alias]
 	# View abbreviated SHA, description, and history graph of the latest 20 commits
 	l 	= log --pretty=oneline -n 20 --graph --abbrev-commit
@@ -121,3 +117,6 @@
 
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
+
+[include]
+	path = ~/.gitconfig.local
