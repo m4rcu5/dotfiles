@@ -1,0 +1,41 @@
+# --- Everything Unread
+"query:All Unread Articles:unread = \"yes\""
+
+# --- Query Feeds
+"query:All GitHub Commits:tags # \"commits\""
+"query:All Software Releases:tags # \"releases\""
+
+
+# --- Fun
+http://moviecode.tumblr.com/rss fun
+
+# --- Comics
+http://xkcd.com/atom.xml 	webcomic
+http://natazilla.tumblr.com/rss webcomic
+http://chibird.tumblr.com/rss 	webcomic
+http://www.questionablecontent.net/QCRSS.xml webcomic "~Questionable Content"
+
+# --- News / Tech
+http://feeds.arstechnica.com/arstechnica/technology-lab	news technology
+http://feeds.arstechnica.com/arstechnica/science	news science
+
+http://www.engadget.com/rss.xml			news technology
+http://www.phoronix.com/rss.php			news technology
+http://feeds.gawker.com/gizmodo/full		news technology
+http://www.reddit.com/r/technology/.rss		news technology
+
+http://news.ycombinator.com/rss			news technology security "~Hacker News" 
+http://rss.slashdot.org/Slashdot/slashdot	news technology security
+
+# --- Blogs
+http://feeds.feedburner.com/codinghorror/	blog hacker
+
+# --- Software Releases
+https://discourse.chef.io/c/chef-release.rss	releases "!Chef Releases"
+https://discourse.chef.io/c/chef-security.rss	releases "!Chef Security"
+
+
+# --- Github Commits
+https://github.com/JanLo/MQTT433gateway/commits/refactoring.atom commits "!MQTT443gateway"
+
+

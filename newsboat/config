@@ -1,0 +1,55 @@
+# auto reload
+auto-reload yes
+reload-time 20
+reload-threads 2
+refresh-on-startup yes
+
+# reading preferences
+goto-first-unread yes
+show-read-feeds no
+#show-read-articles no
+prepopulate-query-feeds yes
+
+# external viewers
+browser "firefox %u"
+player "mplayer"
+
+# html rendering
+html-renderer "w3m -dump -T text/HTML -cols 72"
+
+# paths
+error-log "~/.newsboat/error.log"
+save-path "~/.newsboat/saved_articles"
+
+# desktop notifications
+notify-format "Newsboat: %d new articles (%n unread articles, %f unread feeds)"
+notify-program "notify-send"
+
+# article filtering
+ignore-article "*" "title =~ \"Sponsor\""
+ignore-article "*" "title =~ \"Advertisement\""
+ignore-mode "display"
+
+# formatting and colorization
+articlelist-format "%4i %f %D  %?T?|%-17T| ?%t"
+
+highlight feedlist    "^  *[0-9]+  *N  "                    color255 default
+highlight articlelist "^  *[0-9]+  *N  "                    color255 default
+
+highlight article     "(^Feed:.*|^Title:.*|^Author:.*)"     color214 default
+highlight article     "(^Link:.*|^Date:.*)"                 color45  default
+highlight article     "^Podcast Download URL:.*"            color219 default
+highlight article     "^Links:"                             white    color240 underline
+highlight article     "\\[[0-9][0-9]*\\]"                   color220 default  bold
+highlight article     "\\[image [0-9][0-9]*\\]"             color220 default  bold
+highlight article     ":.*\\(link\\)$"                      color45  default
+highlight article     ":.*\\(image\\)$"                     color45  default
+
+color background                                            color229 default
+color listnormal                                            color250 default
+color listnormal_unread                                     color255 default
+color listfocus                                             color226 color240
+color listfocus_unread                                      color229 color240
+color info                                                  color118 color238
+color article                                               default  default
+
