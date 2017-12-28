@@ -1,6 +1,6 @@
 [submodule "zsh"]
-	path = zsh
+	path = .zsh
 	url = https://github.com/m4rcu5/zshrc.git
 [submodule "pentadactyl/colors/solarized"]
-	path = pentadactyl/colors/solarized
+	path = .pentadactyl/colors/solarized
 	url = https://github.com/claytron/pentadactyl-solarized.git
