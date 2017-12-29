@@ -1,8 +1,25 @@
 #!/bin/bash
 
-# Because Git submodule commands cannot operate without a work tree, they must
-# be run from within $HOME (assuming this is the root of your dotfiles)
+# Run from within $HOME (assuming this is the root of your dotfiles)
 cd "$HOME"
 
+# Initialize our submodules
 echo "Init submodules"
 yadm submodule update --recursive --init
+
+# Seed our .gitconfig.local with the correct email address
+echo "Seed .gitconfig.local"
+if [ ! -f .gitconfig.local ]; then
+    # email is based on username
+    declare -A users=( 				  \
+        ["marcus"]="marcus@marcusvandam.nl"       \
+        ["mvandam"]="mvandam@global.leaseweb.com" \
+    )
+
+    cat <<EOF > .gitconfig.local
+[user]
+        name  = Marcus van Dam
+	email = ${users[$USER]}
+EOF
+
+fi
