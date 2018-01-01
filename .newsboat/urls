@@ -4,6 +4,7 @@
 # --- Query Feeds
 "query:All GitHub Commits:tags # \"commits\""
 "query:All Software Releases:tags # \"releases\""
+"query:All Twitter Feeds:tags # \"twitter\""
 
 
 # --- Fun
@@ -24,16 +25,44 @@ http://www.phoronix.com/rss.php			news technology
 http://feeds.gawker.com/gizmodo/full		news technology
 http://www.reddit.com/r/technology/.rss		news technology
 
-http://news.ycombinator.com/rss			news technology security "~Hacker News" 
-http://rss.slashdot.org/Slashdot/slashdot	news technology security
+http://news.ycombinator.com/rss				news technology security "~Hacker News" 
+http://rss.slashdot.org/Slashdot/slashdot		news technology security
+http://thehackernews.com/feeds/posts/default?alt=rss	news technology security
+
+# --- Linux
+https://twitrss.me/twitter_user_to_rss/?user=bashoneliners	linux twitter "~@bashoneliners"
+
+# --- Engineering
+https://twitrss.me/twitter_user_to_rss/?user=eevblog		engineering twitter "~@eevblog"
 
 # --- Blogs
 http://feeds.feedburner.com/codinghorror/	blog hacker
 
-# --- Software Releases
-https://discourse.chef.io/c/chef-release.rss	releases "!Chef Releases"
-https://discourse.chef.io/c/chef-security.rss	releases "!Chef Security"
+# --- Cryptocurrency
+https://twitrss.me/twitter_user_to_rss/?user=parabolictrav	cryptocurrency twitter "~@parabolictrav"
+https://twitrss.me/twitter_user_to_rss/?user=PeterLBrandt	cryptocurrency twitter "~@PeterLBrandt"
+https://twitrss.me/twitter_user_to_rss/?user=jimmysong		cryptocurrency twitter "~@jimmysong"
+https://twitrss.me/twitter_user_to_rss/?user=desantis		cryptocurrency twitter "~@desantis"
+https://twitrss.me/twitter_user_to_rss/?user=SatoshiLite	cryptocurrency twitter "~@SatoshiLite"
+https://twitrss.me/twitter_user_to_rss/?user=starkness		cryptocurrency twitter "~@starkness"
+https://twitrss.me/twitter_user_to_rss/?user=VinnyLingham	cryptocurrency twitter "~@VinnyLingham"
+https://twitrss.me/twitter_user_to_rss/?user=bitstein		cryptocurrency twitter "~@bitstein"
+https://twitrss.me/twitter_user_to_rss/?user=pierre_rochard	cryptocurrency twitter "~@pierre_rochard"
+https://twitrss.me/twitter_user_to_rss/?user=RichardHeartWin	cryptocurrency twitter "~@RichardHeartWin"
+https://twitrss.me/twitter_user_to_rss/?user=CremeDeLaCrypto	cryptocurrency twitter "~@CremeDeLaCrypto"
+https://twitrss.me/twitter_user_to_rss/?user=MrJozza		cryptocurrency twitter "~@MrJozza"
+https://twitrss.me/twitter_user_to_rss/?user=TONEVAYS		cryptocurrency twitter "~@TONEVAYS"
+https://twitrss.me/twitter_user_to_rss/?user=petertoddbtc	cryptocurrency twitter "~@petertoddbtc"
+https://twitrss.me/twitter_user_to_rss/?user=BAKS3Y		cryptocurrency twitter "~@BAKS3Y"
+https://twitrss.me/twitter_user_to_rss/?user=roasbeef		cryptocurrency twitter "~@roasbeef"
+https://twitrss.me/twitter_user_to_rss/?user=AlyseKilleen	cryptocurrency twitter "~@AlyseKilleen"
+https://twitrss.me/twitter_user_to_rss/?user=ErikVoorhees	cryptocurrency twitter "~@ErikVoorhees"
 
+# --- Software Releases
+https://discourse.chef.io/c/chef-release.rss		releases "!Chef Releases"
+https://discourse.chef.io/c/chef-security.rss		releases "!Chef Security"
+
+https://github.com/saenzramiro/rambox/releases.atom	releases "!Rambox"
 
 # --- Github Commits
 https://github.com/JanLo/MQTT433gateway/commits/refactoring.atom commits "!MQTT443gateway"
