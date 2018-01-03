@@ -12,9 +12,8 @@ http://moviecode.tumblr.com/rss fun
 
 # --- Comics
 http://xkcd.com/atom.xml 	webcomic
-http://natazilla.tumblr.com/rss webcomic
-http://chibird.tumblr.com/rss 	webcomic
-http://www.questionablecontent.net/QCRSS.xml webcomic "~Questionable Content"
+http://lizclimo.tumblr.com/rss  webcomic
+http://sarahcandersen.com/rss   webcomic
 
 # --- News / Tech
 http://feeds.arstechnica.com/arstechnica/technology-lab	news technology
