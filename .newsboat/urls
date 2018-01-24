@@ -28,6 +28,7 @@ http://www.reddit.com/r/technology/.rss		news technology
 http://news.ycombinator.com/rss				news technology security "~Hacker News" 
 http://rss.slashdot.org/Slashdot/slashdot		news technology security
 http://thehackernews.com/feeds/posts/default?alt=rss	news technology security
+https://www.bleepingcomputer.com/feed/                  news technology security "~BleepingComputer"
 
 # --- Linux
 https://twitrss.me/twitter_user_to_rss/?user=bashoneliners	linux twitter "~@bashoneliners"
@@ -42,7 +43,6 @@ http://feeds.feedburner.com/codinghorror/	blog hacker
 https://twitrss.me/twitter_user_to_rss/?user=parabolictrav	cryptocurrency twitter "~@parabolictrav"
 https://twitrss.me/twitter_user_to_rss/?user=PeterLBrandt	cryptocurrency twitter "~@PeterLBrandt"
 https://twitrss.me/twitter_user_to_rss/?user=jimmysong		cryptocurrency twitter "~@jimmysong"
-https://twitrss.me/twitter_user_to_rss/?user=desantis		cryptocurrency twitter "~@desantis"
 https://twitrss.me/twitter_user_to_rss/?user=SatoshiLite	cryptocurrency twitter "~@SatoshiLite"
 https://twitrss.me/twitter_user_to_rss/?user=starkness		cryptocurrency twitter "~@starkness"
 https://twitrss.me/twitter_user_to_rss/?user=VinnyLingham	cryptocurrency twitter "~@VinnyLingham"
