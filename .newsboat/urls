@@ -11,9 +11,10 @@
 http://moviecode.tumblr.com/rss fun
 
 # --- Comics
-http://xkcd.com/atom.xml 	webcomic
-http://lizclimo.tumblr.com/rss  webcomic
-http://sarahcandersen.com/rss   webcomic
+http://xkcd.com/atom.xml            webcomic
+http://lizclimo.tumblr.com/rss      webcomic
+http://sarahcandersen.com/rss       webcomic
+http://www.mrlovenstein.com/rss.xml webcomic
 
 # --- News / Tech
 http://feeds.arstechnica.com/arstechnica/technology-lab	news technology
