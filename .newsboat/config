@@ -1,3 +1,5 @@
+confirm-exit yes
+
 # auto reload
 auto-reload yes
 reload-time 20
