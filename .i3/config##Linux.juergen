@@ -273,7 +273,7 @@ bar {
 
 # for_window
 for_window [title="Write:.*" class="Thunderbird"] floating enable
-for_window [title="urxvt_scratchpad"] move to scratchpad, border 1pixel
+for_window [instance="Calendar" class="Thunderbird"] floating enable
+for_window [title="pinentry"] floating enable
 
-# terminal for scratchpad
-exec urxvtc -name urxvt_scratchpad
+for_window [title="KeePassXC"] move workspace keepass
