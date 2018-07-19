@@ -129,8 +129,8 @@ bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
 
 # screens
-set $leftscreen DP2
-set $rightscreen HDMI1
+set $leftscreen HDMI2
+set $rightscreen DP1
 
 # workspace assignments
 workspace "$ws1" output $leftscreen
