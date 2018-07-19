@@ -11,58 +11,43 @@
 http://moviecode.tumblr.com/rss fun
 
 # --- Comics
-http://xkcd.com/atom.xml            webcomic
-http://lizclimo.tumblr.com/rss      webcomic
-http://sarahcandersen.com/rss       webcomic
-http://www.mrlovenstein.com/rss.xml webcomic
+http://xkcd.com/atom.xml                                webcomic
+http://lizclimo.tumblr.com/rss                          webcomic
+http://sarahcandersen.com/rss                           webcomic
+http://www.mrlovenstein.com/rss.xml                     webcomic
+https://turnoff.us/feed.xml                             webcomic
+https://twitrss.me/twitter_user_to_rss/?user=ralphruthe webcomic twitter "~@ralphruthe"
 
 # --- News / Tech
-http://feeds.arstechnica.com/arstechnica/technology-lab	news technology
-http://feeds.arstechnica.com/arstechnica/science	news science
+http://feeds.arstechnica.com/arstechnica/technology-lab news technology
+http://feeds.arstechnica.com/arstechnica/science        news science
 
-http://www.engadget.com/rss.xml			news technology
-http://www.phoronix.com/rss.php			news technology
-http://feeds.gawker.com/gizmodo/full		news technology
-http://www.reddit.com/r/technology/.rss		news technology
+http://www.engadget.com/rss.xml                         news technology
+http://www.phoronix.com/rss.php                         news technology
+http://feeds.gawker.com/gizmodo/full                    news technology
+http://www.reddit.com/r/technology/.rss                 news technology
 
-http://news.ycombinator.com/rss				news technology security "~Hacker News" 
-http://rss.slashdot.org/Slashdot/slashdot		news technology security
-http://thehackernews.com/feeds/posts/default?alt=rss	news technology security
+http://news.ycombinator.com/rss                         news technology security "~Hacker News" 
+http://rss.slashdot.org/Slashdot/slashdot               news technology security
+http://thehackernews.com/feeds/posts/default?alt=rss    news technology security
 https://www.bleepingcomputer.com/feed/                  news technology security "~BleepingComputer"
+https://www.ncsc.nl/rss/beveiligingsadviezen            news technology security "~NCSC Kwetsbaarheden"
 
 # --- Linux
-https://twitrss.me/twitter_user_to_rss/?user=bashoneliners	linux twitter "~@bashoneliners"
+https://twitrss.me/twitter_user_to_rss/?user=bashoneliners  linux twitter "~@bashoneliners"
 
 # --- Engineering
-https://twitrss.me/twitter_user_to_rss/?user=eevblog		engineering twitter "~@eevblog"
+https://twitrss.me/twitter_user_to_rss/?user=eevblog        engineering twitter "~@eevblog"
+https://hackaday.com/feed/                                  engineering
 
 # --- Blogs
-http://feeds.feedburner.com/codinghorror/	blog hacker
-
-# --- Cryptocurrency
-https://twitrss.me/twitter_user_to_rss/?user=parabolictrav	cryptocurrency twitter "~@parabolictrav"
-https://twitrss.me/twitter_user_to_rss/?user=PeterLBrandt	cryptocurrency twitter "~@PeterLBrandt"
-https://twitrss.me/twitter_user_to_rss/?user=jimmysong		cryptocurrency twitter "~@jimmysong"
-https://twitrss.me/twitter_user_to_rss/?user=SatoshiLite	cryptocurrency twitter "~@SatoshiLite"
-https://twitrss.me/twitter_user_to_rss/?user=starkness		cryptocurrency twitter "~@starkness"
-https://twitrss.me/twitter_user_to_rss/?user=VinnyLingham	cryptocurrency twitter "~@VinnyLingham"
-https://twitrss.me/twitter_user_to_rss/?user=bitstein		cryptocurrency twitter "~@bitstein"
-https://twitrss.me/twitter_user_to_rss/?user=pierre_rochard	cryptocurrency twitter "~@pierre_rochard"
-https://twitrss.me/twitter_user_to_rss/?user=RichardHeartWin	cryptocurrency twitter "~@RichardHeartWin"
-https://twitrss.me/twitter_user_to_rss/?user=CremeDeLaCrypto	cryptocurrency twitter "~@CremeDeLaCrypto"
-https://twitrss.me/twitter_user_to_rss/?user=MrJozza		cryptocurrency twitter "~@MrJozza"
-https://twitrss.me/twitter_user_to_rss/?user=TONEVAYS		cryptocurrency twitter "~@TONEVAYS"
-https://twitrss.me/twitter_user_to_rss/?user=petertoddbtc	cryptocurrency twitter "~@petertoddbtc"
-https://twitrss.me/twitter_user_to_rss/?user=BAKS3Y		cryptocurrency twitter "~@BAKS3Y"
-https://twitrss.me/twitter_user_to_rss/?user=roasbeef		cryptocurrency twitter "~@roasbeef"
-https://twitrss.me/twitter_user_to_rss/?user=AlyseKilleen	cryptocurrency twitter "~@AlyseKilleen"
-https://twitrss.me/twitter_user_to_rss/?user=ErikVoorhees	cryptocurrency twitter "~@ErikVoorhees"
+http://feeds.feedburner.com/codinghorror/               blog hacker
 
 # --- Software Releases
-https://discourse.chef.io/c/chef-release.rss		releases "!Chef Releases"
-https://discourse.chef.io/c/chef-security.rss		releases "!Chef Security"
+https://discourse.chef.io/c/chef-release.rss            releases "!Chef Releases"
+https://discourse.chef.io/c/chef-security.rss           releases "!Chef Security"
 
-https://github.com/saenzramiro/rambox/releases.atom	releases "!Rambox"
+https://github.com/saenzramiro/rambox/releases.atom     releases "!Rambox"
 
 # --- Github Commits
 https://github.com/JanLo/MQTT433gateway/commits/refactoring.atom commits "!MQTT443gateway"
