@@ -1,0 +1,33 @@
+" "vim-like" behaviour where removing a line here makes the setting disappear
+sanitise tridactyllocal tridactylsync
+
+" color scheme
+colorscheme base16-solarized-light
+
+" enable all gui elements
+guiset_quiet gui full
+
+" get rid of the tab bar
+guiset_quiet tabs autohide
+
+" keep the navbar
+guiset_quiet navbar always
+
+" maximum number of Ex commands and find patterns to store in the command-line history
+set historyresults 1000
+
+" set editorcmd to suckless terminal, or use the defaults on other platforms
+js tri.browserBg.runtime.getPlatformInfo().then(os=>{const editorcmd = os.os=="linux" ? "st vim" : "auto"; tri.config.set("editorcmd", editorcmd)})
+
+" sane hinting mode
+set hintfiltermode vimperator-reflow
+set hintnames numeric
+
+" prevent websites from stealing focus
+autocmd TabEnter .* unfocus
+
+" load bootstrap file
+source ~/.config/tridactyl/bootstrap
+
+" vim: set filetype=vim:
+
