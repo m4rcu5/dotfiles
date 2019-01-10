@@ -23,6 +23,10 @@ js tri.browserBg.runtime.getPlatformInfo().then(os=>{const editorcmd = os.os=="l
 set hintfiltermode vimperator-reflow
 set hintnames numeric
 
+" where to open related and new tabs
+set relatedopenpos related
+set tabopenpos last
+
 " prevent websites from stealing focus
 autocmd TabEnter .* unfocus
 
