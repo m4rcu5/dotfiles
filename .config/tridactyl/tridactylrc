@@ -4,14 +4,14 @@ sanitise tridactyllocal tridactylsync
 " color scheme
 colorscheme base16-solarized-light
 
-" enable all gui elements
-guiset_quiet gui full
+" hide all gui elements
+guiset_quiet gui none
 
-" get rid of the tab bar
-guiset_quiet tabs autohide
-
-" keep the navbar
+" show the navbar
 guiset_quiet navbar always
+
+" move the hoverlink to the right
+guiset_quiet hoverlink right
 
 " maximum number of Ex commands and find patterns to store in the command-line history
 set historyresults 1000
