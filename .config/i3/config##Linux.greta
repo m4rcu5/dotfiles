@@ -1,0 +1,251 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# variables
+set $mod Mod4
+
+# font for window titles.
+font xft:DejaVu Sans Mono 8
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# default orientation
+default_orientation vertical
+
+# mode for new containers
+workspace_layout default
+
+# hide edge borders
+hide_edge_borders both
+
+# leave fullscreen when a application creates a popup
+popup_during_fullscreen leave_fullscreen
+
+# when switching to a workspace pressing the same button again get's you back to the previous one
+workspace_auto_back_and_forth yes
+
+# limit the floating container
+floating_minimum_size 75 x 50
+floating_maximum_size -1 x -1
+
+# start a terminal
+bindsym $mod+Return exec urxvtc
+
+# kill focused window
+bindsym $mod+Shift+Q kill
+
+# start rofi
+bindsym $mod+d exec --no-startup-id rofi -show combi
+
+# lock screen
+bindsym $mod+l exec xautolock -locknow
+
+# print screen
+bindsym Print exec maim -s | tee ~/Pictures/screenshot-$(date "+%Y%m%d-%H%M%S").png | xclip -selection clipboard -t image/png
+
+# pulse audio volume control
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ '-5%'
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ '+5%'
+bindsym XF86AudioMute        exec --no-startup-id pactl -- set-sink-mute @DEFAULT_SINK@ toggle
+
+# media keys
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+
+# brightness controll
+bindsym XF86MonBrightnessUp        exec xbacklight -inc 10  -fps 30
+bindsym XF86MonBrightnessDown      exec xbacklight -dec 5   -fps 30
+bindsym $mod+XF86MonBrightnessDown exec xbacklight -set 1   -fps 15
+bindsym $mod+XF86MonBrightnessUp   exec xbacklight -set 100 -fps 15
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, default)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout default
+
+# change borders
+new_window 1pixel
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# toggle sticky
+bindsym $mod+Shift+s sticky toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# switch between the current and the previously focused one
+bindsym $mod+Tab workspace back_and_forth
+
+# workspace naming
+set $ws1 1 
+    assign [class="^(Iceweasel|Firefox.*|chromium|[lL]uakit|(x|X|gnome)-www-browser)$" instance="^(Navigator|chromium|[lL]uakit|(x|X|gnome)-www-browser)$"] $ws1
+set $ws2 2 
+    assign [class="^([sS]ubl)$"] $ws2
+set $ws3 3 
+set $ws4 4 
+set $ws5 5 
+set $ws6 6 
+set $ws7 7 
+set $ws8 8 
+    assign [class="^VirtualBox (Machine|Manager)$"] $ws8
+        for_window [class="^VirtualBox (Machine|Manager)$"] floating disable border none
+set $ws9 9 
+    assign [class="^(rambox)$"] $ws9
+set $ws10 10 
+    assign [class="^(akregator|Icedove|Mail|Thunderbird)$"] $ws10
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    # These bindings trigger as soon as you enter the resize mode
+    bindsym Left resize shrink left 10 px or 10 ppt
+    bindsym Shift+Left resize grow   left 10 px or 10 ppt
+    bindsym Down resize shrink down 10 px or 10 ppt
+    bindsym Shift+Down resize grow   down 10 px or 10 ppt
+    bindsym Up resize shrink up 10 px or 10 ppt
+    bindsym Shift+Up resize grow   up 10 px or 10 ppt
+    bindsym Right resize shrink right 10 px or 10 ppt
+    bindsym Shift+Right resize grow   right 10 px or 10 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# system exit options
+set $mode_system "(l)ock, (e)xit, (s)uspend, (r)eboot, (p)oweroff"
+mode $mode_system {
+     bindsym l exec --no-startup-id xautolock -locknow, mode "default"
+     bindsym e exit, mode "default"
+     bindsym s exec --no-startup-id systemctl suspend, mode "default"
+     bindsym r exec --no-startup-id systemctl reboot, mode "default"
+     bindsym p exec --no-startup-id systemctl poweroff, mode "default"
+
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
+}
+bindsym $mod+Shift+e mode $mode_system
+
+# XRandR bindings
+#set $mode_xrandr "(l)VDS-1, (h)DMI-1, (v)GA-1, (c)opy, (e)xtend, (a)randr"
+#mode $mode_xrandr {
+#     bindsym l exec xrandr --output $desktop_screen --auto --output $vga_screen --off --output $hdmi_screen --off, mode "default"
+#     bindsym h exec xrandr --output $desktop_screen --off --output $vga_screen --off --output $hdmi_screen --auto, mode "default"
+#     bindsym v exec xrandr --output $desktop_screen --off --output $vga_screen --auto --output $hdmi_screen --off, mode "default"
+#     bindsym e mode $mode_xrandr_extend
+#     bindsym c exec xrandr --output $desktop_screen --auto --output $vga_screen --auto --same-as $desktop_screen --output $hdmi_screen --off, mode "default"
+#     bindsym a exec arandr, mode "default"
+#
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+#}
+#set $mode_xrandr_extend "(h)DMI-1, (v)GA-1"
+#mode $mode_xrandr_extend {
+#     bindsym h exec xrandr --output $desktop_screen --auto --output $vga_screen --off --output $hdmi_screen --auto --right-of $desktop_screen, mode "default"
+#     bindsym v exec xrandr --output $desktop_screen --auto --output $vga_screen --auto --right-of $desktop_screen --output $hdmi_screen --off, mode "default"
+#
+#     bindsym Return mode "default"
+#     bindsym Escape mode "default"
+#}
+#bindsym $mod+x mode $mode_xrandr
+#bindsym XF86Display mode $mode_xrandr
+#bindsym Control+$mod+$alt+Up exec xrandr --output $hdmi_screen --rotate normal
+#bindsym Control+$mod+$alt+Right exec xrandr --output $hdmi_screen --rotate right
+#bindsym Control+$mod+$alt+Left exec xrandr --output $hdmi_screen --rotate left
+#bindsym Control+$mod+$alt+Down exec xrandr --output $hdmi_screen --rotate inverted
+
+# start i3bar to display a workspace bar
+bar {
+  mode dock
+  position bottom
+
+  font pango:DejaVu Sans Mono, Awesome 8
+  status_command conky -t ' ${cpu cpu}% (${loadavg 2}) @ ${freq 1}MHz  $mem/${memmax} ($memperc%)  ${battery_time} (${battery_short}) ${if_pa_sink_muted} muted${else} $pa_sink_volume%${endif}  ${time %a %b %d}  ${time %T %Z %Y} '
+}
+
+# scratchpad bindings
+bindsym $mod+minus  scratchpad show
+bindsym $mod+plus   move scratchpad
+bindsym $mod+c      [con_mark="cherrytree"] scratchpad show
+bindsym $mod+k      [con_mark="keepass"] scratchpad show
+
+# floating application settings
+for_window [class="Lxappearance"] floating enable border normal
+
+for_window [class="(?i)pavucontrol"] floating enable
+for_window [class="(?i)vlc"] floating enable
+for_window [class="(?i)keepassxc"] floating enable
+for_window [class="(?i)spacefm"] floating enable
+
+for_window [instance="zoom"] floating enable
+
+# Thunderbird
+for_window [window_role="Msgcompose|Preferences" class="(?i)Thunderbird"] floating enable
+for_window [instance="Enigmail" class="(?i)Thunderbird"] floating enable
+
+for_window [class="^Firefox$" instance="Browser"] floating enable
+
+for_window [class="^feh$"] floating enable
+
+# scratchpad assignments
+for_window [class="(?i)keepassxc" window_type="normal"] mark "keepass", move scratchpad
+for_window [class="(?i)cherrytree" window_type="normal"] mark "cherrytree", move scratchpad
