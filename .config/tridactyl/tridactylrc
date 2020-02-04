@@ -30,8 +30,31 @@ set tabopenpos last
 " prevent websites from stealing focus
 autocmd TabEnter .* unfocus
 
+" allow Ctrl-a to select all in the commandline
+unbind --mode=ex <C-a>
+
+" allow Ctrl-c to copy in the commandline
+unbind --mode=ex <C-c>
+
+" handy multiwindow/multitasking binds
+bind gd tabdetach
+bind gD composite tabduplicate | tabdetach
+
+" use the build-in search function as long as `find()` is not working properly
+" unbinds <C-f> from scrolling, use <C-d> instead
+unbind <C-f>
+
+" new reddit is bad
+bindurl reddit.com <Space><Space> urlmodify -t www old
+
+" skip javascript hints on youtube
+bindurl youtu((\.be)|(be\.com)) f hint -J
+
+" only generate hints for search results
+bindurl google(\.[a-zA-Z0-9]+){1,2}/search f hint -Jc  #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
+bindurl google(\.[a-zA-Z0-9]+){1,2}/search F hint -Jbc #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
+
 " load bootstrap file
 source ~/.config/tridactyl/bootstrap
 
 " vim: set filetype=vim:
-
