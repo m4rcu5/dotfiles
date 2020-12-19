@@ -1,0 +1,95 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+
+general {
+    colors = true
+    color_bad = "#D4746A"
+    color_degraded = "#D4BE66"
+    color_good = "#AFCB66"
+    color_separator = "#586e75"
+
+    interval = 2
+    markup = "pango"
+    output_format = "i3bar"
+}
+
+order += "sysdata"
+order += "battery_level"
+order += "group network"
+#order += "bluetooth"
+order += "backlight"
+order += "volume_status"
+order += "time"
+
+backlight {
+    cache_timeout = 1
+    format = " {level}%"
+}
+
+volume_status {
+    format = ' {percentage}%'
+    format_muted = ' {percentage}%'
+    thresholds = [(0, 'bad'), (5, 'degraded'), (10, 'good')]
+    max_volume = 200
+}
+
+battery_level{
+    notify_low_level = True
+
+    hide_when_full = False
+    hide_seconds = True
+    blocks = ""
+    charging_character = ""
+    threshold_full = 95
+    format = "{icon} {time_remaining} ({percent}%)"
+}
+
+time {
+    format = " %a %d %b  %H:%M:%S"
+}
+
+group network {
+    cycle = 30
+    fixed_width = True
+
+    format = "{output}"
+    click_mode = "all"
+    button_toggle = 0
+    button_next = 1
+
+    wifi {
+        format = " {signal_percent}% ({signal_dbm}dBm) at {ssid} ({bitrate}{bitrate_unit})| "
+    }
+
+    networkmanager {
+        devices = ['[e|w|t]*']
+        format = " {format_device}| "
+        format_device = "[\?if=general_connection {general_device}[\?soft ] [\?color=good {ip4_address1}]]"
+    }
+
+    whatismyip {
+        format  = " {isp}\|{city}\|{countryCode} ({ip})"
+        icon_on = ""
+        hide_when_offline = True
+        url_geo = "http://ip-api.com/json"
+    }
+}
+
+bluetooth {
+    format = "{name}"
+    format_no_conn = ""
+    format_no_conn_prefic = ""
+    format_prefic = ""
+}
+
+sysdata {
+    format = " [\?color=cpu {cpu_used_percent}% ({load5}) @ {cpu_freq_avg}{cpu_freq_unit}]  [\?color=temp {cpu_temp:d}{temp_unit}]  [\?color=mem {mem_used}/{mem_total} {mem_total_unit} ({mem_used_percent}%)]"
+    temp_unit = '°C'
+    thresholds = {
+        "cpu": [(0, "good"), (95, "bad")],
+        "mem": [(0, "good"), (80, "degraded"), (95, "bad")],
+        "temp": [(0, "good"), (85, "degraded"), (100, "bad")]
+    }
+}

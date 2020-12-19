@@ -119,7 +119,7 @@ set $ws8 8 
     assign [class="^VirtualBox (Machine|Manager)$"] $ws8
         for_window [class="^VirtualBox (Machine|Manager)$"] floating disable border none
 set $ws9 9 
-    assign [class="^(rambox)$"] $ws9
+    assign [class="^(rambox|hamsket)$"] $ws9
 set $ws10 10 
     assign [class="^(akregator|Icedove|Mail|Thunderbird)$"] $ws10
 
@@ -219,7 +219,7 @@ bar {
   position bottom
 
   font pango:DejaVu Sans Mono, Awesome 8
-  status_command conky -t ' ${cpu cpu}% (${loadavg 2}) @ ${freq 1}MHz  $mem/${memmax} ($memperc%)  ${battery_time} (${battery_short}) ${if_pa_sink_muted} muted${else} $pa_sink_volume%${endif}  ${time %a %b %d}  ${time %T %Z %Y} '
+  status_command py3status -b
 }
 
 # scratchpad bindings
