@@ -1,19 +1,21 @@
 #!/bin/sh
 
 # Merge local Xresources file
-[[ -e "$HOME/.Xresources.local" ]] && xrdb -merge .Xresources.local
+[ -e "$HOME/.Xresources.local" ] && xrdb -merge .Xresources.local
 
 # Query current DPI
- _DPI=$(xrdb -query | awk '/*\.dpi/ {print $2}')
+_DPI=$(xrdb -query | awk '/*\.dpi/ {print $2}')
 
-# Apply DPI settings to xrandr
-[[ ! -z "$_DPI" ]] && xrandr --dpi $_DPI
+if [ ! -z "$_DPI" ]; then
+    # Apply DPI settings to xrandr
+    [ -x $(command -v xrandr) ] && xrandr --dpi $_DPI
 
-# Apply QT HiDPI scaling
-export QT_SCREEN_SCALE_FACTORS=$(echo "scale=1; $_DPI/96" | bc)
+    # Apply QT HiDPI scaling
+    export QT_SCREEN_SCALE_FACTORS=$(echo "scale=1; $_DPI/96" | bc)
 
-# Disable QT auto scaling
-export QT_AUTO_SCREEN_SCALE_FACTOR=0
+    # Disable QT auto scaling
+    export QT_AUTO_SCREEN_SCALE_FACTOR=0
+fi
 
 # Export default XDG config home
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
@@ -22,19 +24,16 @@ export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 # Set background
-[[ $(type feh) ]] && feh --no-fehbg --no-xinerama --bg-fill "$XDG_CONFIG_HOME/assets/wallpaper.png" &
+[ -x $(command -v feh) ] && feh --no-fehbg --no-xinerama --bg-fill "$XDG_CONFIG_HOME/assets/wallpaper.png" &
 
 # Start compositor
-[[ $(type compton) ]] && compton -b 
+[ -x $(command -v compton) ] && compton -b 
 
 # Start synergy server
-[[ $(type synergys) ]] && synergys -f -n localhost --config ~/.synergy.conf 
+[ -x $(command -v synergys) ] && synergys -f -n localhost --config ~/.synergy.conf 
 
 # Start terminal
-[[ $(type urxvtd) ]] && urxvtd -q -o -f 
+[ -x $(command -v urxvtd) ] && urxvtd -q -o -f 
 
 # XDG autostart support
-[[ $(type dex) ]] && dex --autostart --environment none
-
-# Start xautolock
-[[ $(type xautolock) ]] && (sleep 5; xautolock -noclose) &
+[ -x $(command -v dex) ] && dex --autostart --environment none
