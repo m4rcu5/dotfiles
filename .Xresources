@@ -2,73 +2,84 @@
 ! color schema
 
 !black
-!*color0:  #454545
-!*color8:  #727272
 *color0:  #262626
 *color8:  #3F3F3F
-!!red
+!red
 *color1:  #D44A40
 *color9:  #D4746A
-!!green
+!green
 *color2:  #98CB3C
 *color10: #AFCB66
-!!yellow
+!yellow
 *color3:  #D4B63C
 *color11: #D4BE66
-!!blue
+!blue
 *color4:  #5A89C4
 *color12: #847FC4
-!!magenta
+!magenta
 *color5:  #904AC4
 *color13: #A774C4
-!!cyan
+!cyan
 *color6:  #5ACBBE
 *color14: #84CBBE
-!!white
+!white
 *color7:  #A5A5A5
 *color15: #C5C5C5
 
 !---------------
 ! urxvt-unicode
-!urxvt*font:         xft:xos4 Terminus:antialias=false:size=8
-urxvt*font:         xft:xos4 Terminus:antialias=false:size=10
-urxvt*scrollBar:    false
-urxvt*visualBell:   false
-urxvt*urgentOnBell: true
 
-urxvt*cutchars:          `'",;@&*=|/?()<>[]{}'
-urxvt*saveLines:         8192
-urxvt*scrollTtyOutput:   False
-urxvt*scrollTtyKeypress: True
-urxvt*scrollWithBuffer:  True
+! xft fonts
+URxvt*font:         xft:Terminus:antialias=false:size=10
+URxvt*boldFont:     xft:Terminus:antialias=false:bold:size=10
 
-urxvt*transparent: true
-urxvt*shading:     35
+! use font glyphs
+URxvt*skipBuiltinGlyphs: true
 
-urxvt*background:  #2F2E2D
-urxvt*foreground:  #EFEFEF
-urxvt*cursorColor: #999999
-urxvt*colorBD:     #ffffff
-urxvt*colorUL:     #99cc66
+! hide scrollbar
+URxvt*scrollBar:    false
 
-urxvt*cursorBlink:    true
-urxvt*cursorOnTime:   400
-urxvt*cursorOffTime:  140
+! disable visual bell and notify WM
+URxvt*visualBell:   false
+URxvt*urgentOnBell: true
 
-urxvt*perl-ext-common: default,matcher,keyboard-select
+! Disable ISO 14755 (5.2) mode
+urxvt.iso14755 :   false
+urxvt.iso14755_52: false
 
-urxvt*matcher.button: 1
-urxvt*url-launcher:   firefox
-urxvt*underlineURLs:  true
+! delimiters for double-click selection
+URxvt*cutchars: BACKSLASH `'",;@&*=|/?()<>[]{}'
 
-! These patterns match URLs that can be opened in a browser
-urxvt*matcher.pattern.0:  \\b(?:(?:https?|ftp):\/\/|mailto:)[\\w\-\@;\/?:&=%\$_.+!*\x27(),~#]+ [\\w\-\@;\/?:&=%\$_+!*\x27()~]
-urxvt*matcher.pattern.1:  \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+! scrollback buffer
+URxvt*saveLines:         8192
 
-! This one matches image URLs and open them in FEH
-urxvt*matcher.pattern.2:  \\bhttps?:\/\/[\\w-.]*\/[\\w./?&@#-]*.(jpg|jpeg|png)
-urxvt*matcher.launcher.2: feh $0
+! only scroll when a non-special key is pressed
+URxvt*scrollTtyOutput:   False
+URxvt*scrollWithBuffer:  False
+URxvt*scrollTtyKeypress: True
 
+! enable transparancy
+URxvt*transparent: true
+URxvt*shading:     35
+
+! terminal colors
+URxvt*background:  #2F2E2D
+URxvt*foreground:  #EFEFEF
+URxvt*cursorColor: #999999
+
+! bold / italic colors
+URxvt*colorBD:     #ffffff
+URxvt*colorUL:     #99cc66
+
+! enable blinking cursor
+URxvt*cursorBlink:    true
+URxvt*cursorOnTime:   400
+URxvt*cursorOffTime:  140
+
+! enable perl extensions
+URxvt*perl-ext-common: default,keyboard-select
+
+! bind alt-a & alt-s to keyboard-select
 urxvt.keysym.M-a: perl:keyboard-select:activate
 urxvt.keysym.M-s: perl:keyboard-select:search
 
