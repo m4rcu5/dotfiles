@@ -1,4 +1,0 @@
-rofi.combi-modi:    window,drun
-rofi.theme:         /usr/share/rofi/themes/Arc.rasi
-rofi.font:          DejaVu Sans Mono 8
-rofi.modi:          combi
