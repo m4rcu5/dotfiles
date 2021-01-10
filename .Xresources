@@ -75,14 +75,3 @@ urxvt.keysym.M-s: perl:keyboard-select:search
 !---------
 ! WeeChat
 weechat*urgentOnBell: true
-
-!----------
-! Xautlock
-Xautolock.time: 10
-Xautolock.locker: $XDG_CONFIG_HOME/autolock.sh lock
-Xautolock.killtime: 30
-Xautolock.killer: $XDG_CONFIG_HOME/autolock.sh suspend
-Xautolock.notify: 15
-Xautolock.notifier: $XDG_CONFIG_HOME/autolock.sh notify
-Xautolock.detectsleep: true
-Xautolock.noclose: true
