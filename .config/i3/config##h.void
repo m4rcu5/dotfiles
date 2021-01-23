@@ -1,0 +1,277 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+
+# set modifier key to 'windows'
+set $mod Mod4
+
+# font for window titles.
+font pango:Source Sans Pro 10
+
+# use mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# default orientation
+default_orientation vertical
+
+# mode for new containers
+workspace_layout default
+
+# hide edge borders
+hide_edge_borders both
+
+# leave fullscreen when a application creates a popup
+popup_during_fullscreen leave_fullscreen
+
+# when switching to a workspace pressing the same button again get's you back to the previous one
+workspace_auto_back_and_forth yes
+
+# limit the floating container
+floating_minimum_size 75 x 50
+floating_maximum_size -1 x -1
+
+# start a terminal
+bindsym $mod+Return exec urxvtc
+
+# kill focused window
+bindsym $mod+Shift+Q kill
+
+# start rofi
+bindsym $mod+d exec --no-startup-id rofi -show combi
+
+# lock screen
+bindsym $mod+l exec --no-startup-id loginctl lock-session
+
+# print screen
+bindsym Print exec maim -s | tee ~/Pictures/screenshot-$(date "+%Y%m%d-%H%M%S").png | xclip -selection clipboard -t image/png
+
+# pulse audio volume control
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ '-5%'
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ '+5%'
+bindsym XF86AudioMute        exec --no-startup-id pactl -- set-sink-mute @DEFAULT_SINK@ toggle
+
+# media keys
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+
+# brightness controll
+bindsym XF86MonBrightnessUp        exec xbacklight -inc 10  -fps 30
+bindsym XF86MonBrightnessDown      exec xbacklight -dec 5   -fps 30
+bindsym $mod+XF86MonBrightnessDown exec xbacklight -set 1   -fps 15
+bindsym $mod+XF86MonBrightnessUp   exec xbacklight -set 100 -fps 15
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, default)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout default
+
+# change borders
+new_window 1pixel
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# toggle sticky
+bindsym $mod+Shift+s sticky toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# switch between the current and the previously focused one
+bindsym $mod+Tab workspace back_and_forth
+
+# workspace naming
+set $ws1 1 
+    assign [class="^(Iceweasel|Firefox.*|chromium|[lL]uakit|(x|X|gnome)-www-browser)$" instance="^(Navigator|chromium|[lL]uakit|(x|X|gnome)-www-browser)$"] $ws1
+set $ws2 2 
+    assign [class="^([sS]ubl)$"] $ws2
+set $ws3 3 
+set $ws4 4 
+set $ws5 5 
+set $ws6 6 
+set $ws7 7 
+set $ws8 8 
+    assign [class="^VirtualBox (Machine|Manager)$"] $ws8
+        for_window [class="^VirtualBox (Machine|Manager)$"] floating disable border none
+set $ws9 9 
+    assign [class="^(rambox|hamsket|[fF]erdi)$"] $ws9
+set $ws10 10 
+    assign [class="^(akregator|Icedove|Mail|Thunderbird)$"] $ws10
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10; workspace $ws10
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+    # These bindings trigger as soon as you enter the resize mode
+    bindsym Left resize shrink left 10 px or 10 ppt
+    bindsym Shift+Left resize grow   left 10 px or 10 ppt
+    bindsym Down resize shrink down 10 px or 10 ppt
+    bindsym Shift+Down resize grow   down 10 px or 10 ppt
+    bindsym Up resize shrink up 10 px or 10 ppt
+    bindsym Shift+Up resize grow   up 10 px or 10 ppt
+    bindsym Right resize shrink right 10 px or 10 ppt
+    bindsym Shift+Right resize grow   right 10 px or 10 ppt
+
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+# system exit options
+set $mode_system "(l)ock, (e)xit, (s)uspend, (r)eboot, (p)oweroff"
+mode $mode_system {
+     bindsym l exec --no-startup-id loginctl lock-session, mode "default"
+     bindsym e exit, mode "default"
+     bindsym s exec --no-startup-id loginctl suspend, mode "default"
+     bindsym r exec --no-startup-id loginctl reboot, mode "default"
+     bindsym p exec --no-startup-id loginctl poweroff, mode "default"
+
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+e mode $mode_system
+
+# color scheme: Arc-Darker
+set $mode-color                  #f27835
+set $base-color-focused          #5294e2
+set $base-color-focused_inactive #292c36
+set $base-color-unfocused        #292c36
+set $base-color-urgent           #fc4138
+set $base-color-placeholder      #0c0c0c
+set $base-color-background       #292c36
+set $text-color-focused          #ffffff
+set $text-color-focused_inactive #bac3cf
+set $text-color-unfocused        #bac3cf
+set $text-color-urgent           #ffffff
+set $text-color-placeholder      #ffffff
+
+# bar color scheme
+set $bar-font             pango:Source Code Pro, Awesome 10
+set $bar-background-color #292c36
+set $bar-statusline-color #ffffff
+set $bar-seperator-color  #bac3cf
+
+# class                 border                       backgr.                      text                         indicator   child_border
+client.focused          $base-color-focused          $base-color-focused          $text-color-focused          $mode-color $base-color-focused
+client.focused_inactive $base-color-focused_inactive $base-color-focused_inactive $text-color-focused_inactive $mode-color $base-color-focused_inactive
+client.unfocused        $base-color-unfocused        $base-color-unfocused        $text-color-unfocused        $mode-color $base-color-unfocused
+client.urgent           $base-color-urgent           $base-color-urgent           $text-color-urgent           $mode-color $base-color-urgent
+client.placeholder      $base-color-placeholder      $base-color-placeholder      $text-color-placeholder      $mode-color $base-color-placeholder
+client.background       $base-color-background
+
+# start i3bar to display a workspace bar
+bar {
+  mode dock
+  position bottom
+
+  font $bar-font
+  status_command py3status -b
+
+  colors {
+    background $bar-background-color
+    statusline $bar-statusline-color
+    separator  $bar-seperator-color
+
+    # class             border                       backgr.                      text
+    focused_workspace   $base-color-focused          $base-color-focused          $text-color-focused
+    active_workspace    $base-color-focused_inactive $base-color-focused_inactive $text-color-focused_inactive
+    inactive_workspace  $base-color-unfocused        $base-color-unfocused        $text-color-unfocused
+    urgent_workspace    $base-color-urgent           $base-color-urgent           $text-color-urgent
+    binding_mode        $mode-color                  $mode-color                  #ffffff
+  }
+}
+
+# scratchpad bindings
+bindsym $mod+minus  scratchpad show
+bindsym $mod+plus   move scratchpad
+bindsym $mod+c      [con_mark="cherrytree"] scratchpad show
+bindsym $mod+k      [con_mark="keepass"] scratchpad show
+
+# scratchpad assignments
+for_window [class="(?i)keepassxc"  window_type="normal"] mark "keepass", floating enable, move scratchpad
+for_window [class="(?i)cherrytree" window_type="normal"] mark "cherrytree", floating enable, move scratchpad
+
+# floating windows: per role
+for_window [window_role="app"]                      floating enable
+for_window [window_role="pop-up"]                   floating enable
+for_window [window_role="task_dialog"]              floating enable
+
+# floating windows: per title
+for_window [title="Preferences$"]                   floating enable
+
+# floating windows: per applocation
+for_window [class="(?i)lxappearance"]               floating enable
+for_window [class="(?i)nm-connection-editor"]       floating enable
+for_window [class="(?i)pavucontrol"]                floating enable
+for_window [class="(?i)vlc"]                        floating enable
+for_window [class="(?i)feh"]                        floating enable
+
+# floating windows: Thunderbird specific
+for_window [class="(?i)thunderbird" window_role="Msgcompose"]   floating enable
+for_window [class="(?i)thunderbird" instance="Enigmail"]        floating enable
+
+#
+# execute applications
+#
+
+# dim screen after 60s, lock after 5m, turn off after 10m
+exec xset s 60 300 dpms 0 0 600
+
+# start screenlocker
+exec xss-lock -l -n "$XDG_CONFIG_HOME/lockscreen.sh dim" -- $XDG_CONFIG_HOME/lockscreen.sh lock
