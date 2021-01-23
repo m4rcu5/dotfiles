@@ -1,6 +1,6 @@
 configuration {
 	modi: "combi";
-	font: "DejaVu Sans Mono 8";
+	font: "Source Code Pro 8";
 	combi-modi: "window,drun";
-	theme: "/usr/share/rofi/themes/Arc.rasi";
+	theme: "Arc";
 }
