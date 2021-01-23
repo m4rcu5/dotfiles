@@ -22,4 +22,8 @@ if [ ! -f .gitconfig.local ]; then
 	email = ${users[$USER]}
 EOF
 
+# Update the git origin of this repository
+echo "Updating the yadm repo origin URL"
+yadm remote set-url origin "git@github.com:m4rcu5/dotfiles.git"
+
 fi
