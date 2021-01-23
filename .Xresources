@@ -1,88 +1,94 @@
 !--------------
-! color schema
+! Color Scheme
 
 !black
 *color0:  #262626
 *color8:  #3F3F3F
+
 !red
 *color1:  #D44A40
 *color9:  #D4746A
+
 !green
 *color2:  #98CB3C
 *color10: #AFCB66
+
 !yellow
 *color3:  #D4B63C
 *color11: #D4BE66
+
 !blue
 *color4:  #5A89C4
 *color12: #847FC4
+
 !magenta
 *color5:  #904AC4
 *color13: #A774C4
+
 !cyan
 *color6:  #5ACBBE
 *color14: #84CBBE
+
 !white
 *color7:  #A5A5A5
 *color15: #C5C5C5
 
 !---------------
-! urxvt-unicode
+! URxvt-Unicode
 
 ! xft fonts
-URxvt*font:         xft:Terminus:antialias=false:size=10
-URxvt*boldFont:     xft:Terminus:antialias=false:bold:size=10
+URxvt.font:         xft:Terminus:antialias=false:size=10
 
 ! use font glyphs
-URxvt*skipBuiltinGlyphs: true
+URxvt.skipBuiltinGlyphs: true
 
 ! hide scrollbar
-URxvt*scrollBar:    false
+URxvt.scrollBar:    false
 
 ! disable visual bell and notify WM
-URxvt*visualBell:   false
-URxvt*urgentOnBell: true
+URxvt.visualBell:   false
+URxvt.urgentOnBell: true
 
 ! Disable ISO 14755 (5.2) mode
-urxvt.iso14755 :   false
-urxvt.iso14755_52: false
+URxvt.iso14755 :   false
+URxvt.iso14755_52: false
 
 ! delimiters for double-click selection
-URxvt*cutchars: BACKSLASH `'",;@&*=|/?()<>[]{}'
+URxvt.cutchars: BACKSLASH `'",;@&*=|/?()<>[]{}'
 
 ! scrollback buffer
-URxvt*saveLines:         8192
+URxvt.saveLines: 8192
 
 ! only scroll when a non-special key is pressed
-URxvt*scrollTtyOutput:   False
-URxvt*scrollWithBuffer:  False
-URxvt*scrollTtyKeypress: True
+URxvt.scrollTtyOutput:   False
+URxvt.scrollWithBuffer:  True
+URxvt.scrollTtyKeypress: True
 
 ! enable transparancy
-URxvt*transparent: true
-URxvt*shading:     35
+URxvt.transparent: true
+URxvt.shading:     35
 
 ! terminal colors
-URxvt*background:  #2F2E2D
-URxvt*foreground:  #EFEFEF
-URxvt*cursorColor: #999999
+URxvt.background:  #2F2E2D
+URxvt.foreground:  #EFEFEF
+URxvt.cursorColor: #999999
 
 ! bold / italic colors
-URxvt*colorBD:     #ffffff
-URxvt*colorUL:     #99cc66
+URxvt.colorBD:     #ffffff
+URxvt.colorUL:     #99cc66
 
 ! enable blinking cursor
-URxvt*cursorBlink:    true
-URxvt*cursorOnTime:   400
-URxvt*cursorOffTime:  140
+URxvt.cursorBlink:    true
+URxvt.cursorOnTime:   400
+URxvt.cursorOffTime:  140
 
 ! enable perl extensions
-URxvt*perl-ext-common: default,keyboard-select
+URxvt.perl-ext-common: default,keyboard-select
 
 ! bind alt-a & alt-s to keyboard-select
-urxvt.keysym.M-a: perl:keyboard-select:activate
-urxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keysym.M-a: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
 
 !---------
 ! WeeChat
-weechat*urgentOnBell: true
+weechat.urgentOnBell: true
