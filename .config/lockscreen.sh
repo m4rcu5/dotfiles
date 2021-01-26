@@ -3,14 +3,6 @@
 # This script is intended to be called from xss-lock with the '--transfer-sleep-lock' option.
 #
 
-set -eu
-
-# notify using notify-send (dunst)
-notify() {
-  notify-send --urgency="normal" --app-name="xautolock" \
-    --icon="system-lock-screen" -- "$*"
-}
-
 # control the dunst daemon, if it is running.
 dunst() {
   pkill -0 --exact dunst || return 0
@@ -51,7 +43,7 @@ case "$1" in
 
   lock)
     # pause any music players
-    $(command -v playerctl &>/dev/null) && playerctl -a pause
+    playerctl -a pause &>/dev/null
 
     # pause dunst notifications
     dunst stop

@@ -175,7 +175,7 @@
     max_icon_size = 48
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Arc/status/32/:/usr/share/icons/Arc/devices/32/:/usr/share/icons/Arc/apps/32/
+    icon_path = /usr/share/icons/Arc/actions/16/:/usr/share/icons/Arc/apps/16/:/usr/share/icons/Arc/devices/16/:/usr/share/icons/Arc/status/16/
 
     ### History ###
 
