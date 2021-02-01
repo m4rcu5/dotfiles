@@ -106,7 +106,7 @@
 	autocorrect = 1
 
 [commit]
-        # Use GPG signing on all our commits by default
+	# Use GPG signing on all our commits by default
 	gpgsign = true
 
 [gpg]
@@ -118,13 +118,15 @@
 	log = true
 
 [push]
-	# Use the Git 1.x.x default to avoid errors on machines with old Git
-	# installations. To use `simple` instead, add this to your `~/.extra` file:
-	# `git config --global push.default simple`. See http://git.io/mMah-w.
-	default = matching
+	# This mode has become the default in Git 2.0.
+	default = simple
 
 	# Make `git push` push relevant annotated tags when pushing branches out.
 	followTags = true
+
+[pull]
+	# Onlu allow fast-forward merges when running `git pull`
+	ff = only
 
 [include]
 	path = ~/.gitconfig.local
