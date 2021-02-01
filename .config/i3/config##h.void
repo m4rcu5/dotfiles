@@ -259,6 +259,8 @@ for_window [title="Preferences$"]                   floating enable
 for_window [class="(?i)lxappearance"]               floating enable
 for_window [class="(?i)nm-connection-editor"]       floating enable
 for_window [class="(?i)pavucontrol"]                floating enable
+for_window [class="(?i)spacefm"]                    floating enable
+for_window [class="(?i)owncloud"]                   floating enable
 for_window [class="(?i)vlc"]                        floating enable
 for_window [class="(?i)feh"]                        floating enable
 
