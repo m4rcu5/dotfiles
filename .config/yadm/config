@@ -1,0 +1,3 @@
+[yadm]
+	# Use GnuPG v2 by default
+	gpg-program = gpg2
