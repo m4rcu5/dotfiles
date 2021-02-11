@@ -11,17 +11,17 @@ if [ ! -z "$_DPI" ]; then
     [ -x $(command -v xrandr) ] && xrandr --dpi $_DPI
 
     # # Apply QT HiDPI scaling
-    # export QT_SCREEN_SCALE_FACTORS=$(echo "scale=1; $_DPI/96" | bc)
+    export QT_SCREEN_SCALE_FACTORS=$(echo "scale=1; $_DPI/96" | bc)
 
     # # Disable QT auto scaling
-    # export QT_AUTO_SCREEN_SCALE_FACTOR=0
+    export QT_AUTO_SCREEN_SCALE_FACTOR=0
 fi
 
 # Export default XDG config home
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:-$HOME/.config}"
 
-# Export GTK theme for use in QT
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+# Export GTK theme for use in QT5
+export QT_QPA_PLATFORMTHEME=gtk2
 
 # Spawn D-Bus user session
 if [ -x $(command -v dbus-launch) ] && [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
@@ -32,7 +32,7 @@ fi
 [ -x $(command -v feh) ] && feh --no-fehbg --no-xinerama --bg-fill "$XDG_CONFIG_HOME/assets/wallpaper.png" &
 
 # Start compositor
-[ -x $(command -v compton) ] && compton -b 
+[ -x $(command -v picom) ] && picom -b 
 
 # Start synergy server
 [ -x $(command -v synergys) ] && synergys -f -n localhost --config ~/.synergy.conf 
