@@ -1,0 +1,24 @@
+#
+# Per window options
+#
+
+# floating windows: per role
+for_window [window_role="app"]                      floating enable
+for_window [window_role="pop-up"]                   floating enable
+for_window [window_role="task_dialog"]              floating enable
+
+# floating windows: per title
+for_window [title="Preferences$"]                   floating enable
+
+# floating windows: per applocation
+for_window [class="(?i)lxappearance"]               floating enable
+for_window [class="(?i)nm-connection-editor"]       floating enable
+for_window [class="(?i)pavucontrol"]                floating enable
+for_window [class="(?i)spacefm"]                    floating enable
+for_window [class="(?i)owncloud"]                   floating enable
+for_window [class="(?i)vlc"]                        floating enable
+for_window [class="(?i)feh"]                        floating enable
+
+# floating windows: Thunderbird specific
+for_window [class="(?i)thunderbird" window_role="Msgcompose"]   floating enable
+for_window [class="(?i)thunderbird" instance="Enigmail"]        floating enable

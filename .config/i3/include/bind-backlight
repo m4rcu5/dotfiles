@@ -1,0 +1,8 @@
+#
+# Backlight control
+#
+
+bindsym XF86MonBrightnessUp        exec xbacklight -inc 10  -fps 30
+bindsym XF86MonBrightnessDown      exec xbacklight -dec 5   -fps 30
+bindsym $mod+XF86MonBrightnessDown exec xbacklight -set 1   -fps 15
+bindsym $mod+XF86MonBrightnessUp   exec xbacklight -set 100 -fps 15

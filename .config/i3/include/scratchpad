@@ -1,0 +1,13 @@
+#
+# Scratchpad setup
+#
+
+# scratchpad bindings
+bindsym $mod+minus  scratchpad show
+bindsym $mod+plus   move scratchpad
+bindsym $mod+c      [con_mark="cherrytree"] scratchpad show
+bindsym $mod+k      [con_mark="keepass"] scratchpad show
+
+# scratchpad assignments
+for_window [class="(?i)keepassxc"  window_type="normal"] mark "keepass", floating enable, move scratchpad
+for_window [class="(?i)cherrytree" window_type="normal"] mark "cherrytree", floating enable, move scratchpad

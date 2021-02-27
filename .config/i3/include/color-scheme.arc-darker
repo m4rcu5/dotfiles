@@ -1,0 +1,30 @@
+#
+# Color scheme: Arc-Darker
+#
+
+set $mode-color                  #f27835
+set $base-color-focused          #5294e2
+set $base-color-focused_inactive #292c36
+set $base-color-unfocused        #292c36
+set $base-color-urgent           #fc4138
+set $base-color-placeholder      #0c0c0c
+set $base-color-background       #292c36
+set $text-color-focused          #ffffff
+set $text-color-focused_inactive #bac3cf
+set $text-color-unfocused        #bac3cf
+set $text-color-urgent           #ffffff
+set $text-color-placeholder      #ffffff
+
+# bar color scheme
+set $bar-font             pango:Source Code Pro, Awesome 10
+set $bar-background-color #292c36
+set $bar-statusline-color #ffffff
+set $bar-seperator-color  #bac3cf
+
+# class                 border                       backgr.                      text                         indicator   child_border
+client.focused          $base-color-focused          $base-color-focused          $text-color-focused          $mode-color $base-color-focused
+client.focused_inactive $base-color-focused_inactive $base-color-focused_inactive $text-color-focused_inactive $mode-color $base-color-focused_inactive
+client.unfocused        $base-color-unfocused        $base-color-unfocused        $text-color-unfocused        $mode-color $base-color-unfocused
+client.urgent           $base-color-urgent           $base-color-urgent           $text-color-urgent           $mode-color $base-color-urgent
+client.placeholder      $base-color-placeholder      $base-color-placeholder      $text-color-placeholder      $mode-color $base-color-placeholder
+client.background       $base-color-background

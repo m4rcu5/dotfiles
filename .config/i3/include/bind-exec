@@ -1,0 +1,21 @@
+#
+# Executable key binding
+#
+
+# start a terminal
+bindsym $mod+Return exec urxvtc
+
+# kill focused window
+bindsym $mod+Shift+Q kill
+
+# start rofi
+bindsym $mod+d exec --no-startup-id rofi -show combi
+
+# networkmanager via rofi
+bindsym $mod+n exec --no-startup-id networkmanager_dmenu
+
+# lock screen
+bindsym $mod+l exec --no-startup-id loginctl lock-session
+
+# print screen
+bindsym Print exec maim -s | tee ~/Pictures/screenshot-$(date "+%Y%m%d-%H%M%S").png | xclip -selection clipboard -t image/png

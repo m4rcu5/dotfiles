@@ -1,0 +1,12 @@
+  colors {
+    background $bar-background-color
+    statusline $bar-statusline-color
+    separator  $bar-seperator-color
+
+    # class             border                       backgr.                      text
+    focused_workspace   $base-color-focused          $base-color-focused          $text-color-focused
+    active_workspace    $base-color-focused_inactive $base-color-focused_inactive $text-color-focused_inactive
+    inactive_workspace  $base-color-unfocused        $base-color-unfocused        $text-color-unfocused
+    urgent_workspace    $base-color-urgent           $base-color-urgent           $text-color-urgent
+    binding_mode        $mode-color                  $mode-color                  #ffffff
+  }
