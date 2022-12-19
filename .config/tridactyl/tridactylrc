@@ -1,9 +1,6 @@
 " "vim-like" behaviour where removing a line here makes the setting disappear
 sanitise tridactyllocal tridactylsync
 
-" color scheme
-colorscheme base16-solarized-light
-
 " hide all gui elements
 guiset_quiet gui none
 
@@ -16,16 +13,9 @@ guiset_quiet hoverlink right
 " maximum number of Ex commands and find patterns to store in the command-line history
 set historyresults 1000
 
-" set editorcmd to suckless terminal, or use the defaults on other platforms
-js tri.browserBg.runtime.getPlatformInfo().then(os=>{const editorcmd = os.os=="linux" ? "st vim" : "auto"; tri.config.set("editorcmd", editorcmd)})
-
 " sane hinting mode
 set hintfiltermode vimperator-reflow
 set hintnames numeric
-
-" where to open related and new tabs
-set relatedopenpos related
-set tabopenpos last
 
 " prevent websites from stealing focus
 autocmd TabEnter .* unfocus
@@ -40,21 +30,28 @@ unbind --mode=ex <C-c>
 bind gd tabdetach
 bind gD composite tabduplicate | tabdetach
 
+" make d take you to the left
+bind d composite tabprev; tabclose #
+bind D tabclose
+
+" make t open the selection with tabopen
+bind --mode=visual t composite js document.getSelection().toString() | fillcmdline tabopen
+
 " use the build-in search function as long as `find()` is not working properly
 " unbinds <C-f> from scrolling, use <C-d> instead
 unbind <C-f>
 
-" new reddit is bad
-bindurl reddit.com <Space><Space> urlmodify -t www old
-
 " skip javascript hints on youtube
 bindurl youtu((\.be)|(be\.com)) f hint -J
 
+" make gu take you back to subreddit from comments
+bindurl reddit.com gu urlparent 4
+
 " only generate hints for search results
-bindurl google(\.[a-zA-Z0-9]+){1,2}/search f hint -Jc  #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
-bindurl google(\.[a-zA-Z0-9]+){1,2}/search F hint -Jbc #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
+bindurl www.google.com f hint -Jc #search div:not(.action-menu) > a, #pnnext, #pnprev
+bindurl www.google.com F hint -Jbc #search div:not(.action-menu) > a, #pnnext, #pnprev
 
-" load bootstrap file
-source ~/.config/tridactyl/bootstrap
+" bindurl google(\.[a-zA-Z0-9]+){1,2}/search f hint -Jc  #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
+" bindurl google(\.[a-zA-Z0-9]+){1,2}/search F hint -Jbc #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
 
-" vim: set filetype=vim:
+" vim: filetype=tridactyl
