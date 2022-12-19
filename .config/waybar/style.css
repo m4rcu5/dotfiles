@@ -1,0 +1,144 @@
+/* -----------------------------------------------------------------------------
+ * Base styles
+ * -------------------------------------------------------------------------- */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "Source Code Pro", "Font Awesome 5 Free";
+    font-size: 13px;
+    padding-bottom: 3px;
+}
+
+window#waybar {
+    color: #d3dae3;
+    font-weight: 500;
+    background:rgba(56, 60, 74, 0.95);
+}
+
+#workspaces button {
+    color: #d3dae3;
+    padding: 2px 4px;
+    border-bottom: 2px;
+    border-color: #d3dae3;
+    border-style: solid;
+    margin-top: 2px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#workspaces button:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#workspaces button.focused {
+    color: #000000;
+    border-color: #5294e2;
+}
+
+#workspaces button.urgent {
+    color: white;
+    background-color: rgba(173, 60, 59, 0.75);
+    border-color: #fc4138;
+}
+
+#workspaces button.focused > label,
+#workspaces button.urgent  > label {
+    color: white;
+}
+
+#mode {
+    color: white;
+    background-color: rgba(173, 60, 59, 0.75);
+    border-bottom: 3px solid #ffffff;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+    padding: 0 10px;
+    border-bottom: 2px;
+    border-style: solid;
+}
+
+
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+
+#workspaces {
+    margin: 0 4px;
+}
+
+/* Anything that can change color should be green by default */
+#battery,
+#cpu,
+#memory,
+#disk,
+#pulseaudio,
+#temperature,
+#network {
+    color: #98cb3c;
+}
+
+#battery.charging, #battery.plugged {
+    color: #d4b63c;
+}
+
+@keyframes blink {
+    to {
+        color: white;
+        background-color: black;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background: rgba(173, 60, 59, 0.75);
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#network.disconnected,
+#pulseaudio.muted,
+#temperature.critical {
+    color: #d44a40;
+}
+
+#idle_inhibitor.activated {
+    background-color: rgba(167, 94, 57, 0.75);
+}
+
+#tray {
+    color: #5294e2;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}
+
+#window{
+    border-style: hidden;
+    margin-top: 5px;  
+}
+
+#mode{
+    margin-bottom: 3px;
+}
