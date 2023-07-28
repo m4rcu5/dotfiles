@@ -1,0 +1,90 @@
+### General ###
+
+# enable pango markup
+markup=true
+
+# enable actions
+actions=true
+
+# enable icons
+icons=true
+
+# enable grouping
+group-by=summary
+
+# set default timeout in ms
+default-timeout=10000
+
+# history settings
+max-visible=8
+max-history=20
+
+### Notification Format ###
+
+# mesage dimensions
+width=420
+height=130
+
+# margins to screen
+outer-margin=20,15
+
+# inner margins and padding
+margin=10,20,5
+padding=5,10
+
+# default font
+font=Source Sans Pro 12
+
+# border settings
+border-color=#17191F
+border-size=1
+
+# default colors
+text-color=#bac3cf
+background-color=#383c4af2
+
+# actual text format
+format=<span foreground='#ffffff'><b>%s</b></span>\n%b
+
+# icon search path
+icon-path=/usr/share/icons/Papirus-Dark:/usr/share/icons/Papirus
+
+### Mouse Bindings ###
+
+on-button-left=dismiss
+on-button-middle=invoke-default-action
+on-button-right=dismiss-all
+
+### Grouping ###
+[grouped]
+invisible=false
+icons=false
+format=\n%b
+margin=-1,10,-1
+
+[group-index=0]
+format=<span foreground='#ffffff'><b>%s</b> (%g)</span>\n%b
+margin=10,10,-1
+
+### Modes ###
+[mode=away]
+default-timeout=0
+ignore-timeout=true
+
+### Overrides ###
+
+[urgency=high]
+text-color=#ffffff
+background-color=#ad3c3bf2
+border-color=#fc4138
+default-timeout=0
+
+[app-name=playerctl]
+max-icon-size=96
+
+[app-name=clementine]
+max-icon-size=96
+
+# evoultion hammers the keychain, lets silence it
+[app-name=KeePassXC body~="Entry was used by .*evolution-source-registry"]
+invisible=1
