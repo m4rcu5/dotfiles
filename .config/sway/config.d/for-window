@@ -1,0 +1,48 @@
+#
+# Per window options
+#
+
+# floating windows: per role
+for_window {
+    [window_role="app"]                         floating enable
+    [window_role="pop-up"]                      floating enable
+    [window_role="task_dialog"]                 floating enable
+}
+
+# floating windows: per title
+for_window {
+    [title="Preferences$"]                      floating enable
+    [title="(?:Open|Save) (?:File|Folder|As)"]  floating enable
+}
+
+# floating windows: per applocation
+for_window {
+    [app_id="nm-connection-editor"]             floating enable
+    [app_id="nm-openconnect-auth-dialog"]       floating enable
+    [app_id="pavucontrol"]                      floating enable
+    [app_id="pcmanfm"]                          floating enable
+    [app_id="nextcloud"]                        floating enable
+    [app_id="imv"]                              floating enable
+}
+
+# tag xwayland windows with [X]
+for_window [shell="xwayland"] title_format "<span>[X] %title</span>"
+
+# app: evolution
+for_window {
+    [app_id="evolution-alarm-notify"]               floating enable
+    [app_id="evolution" title="Compose Message"]    floating enable
+    [app_id="evolution" title="Re(.*)"]             floating enable
+    [app_id="evolution" title="Fwd(.*)"]            floating enable
+}
+
+# app: librewolf (float all except browser itself)
+for_window {
+    [app_id="librewolf-(.*)"]                       floating enable
+    [app_id="librewolf-(.*)" title="— LibreWolf"]   floating disable
+    [app_id="librewolf-(.*)" title="^LibreWolf"]    floating disable
+}
+
+#for_window [app_id="librewolf-(.*)" title="LibreWolf – Sharing Indicator"] floating enable
+#for_window [app_id="librewolf-(.*)" title="Picture-in-Picture"] floating enable
+#for_window [app_id="librewolf-(.*)" title="About LibreWolf"] floating enable

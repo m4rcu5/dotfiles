@@ -1,0 +1,18 @@
+#
+# Executable key binding
+#
+
+# start a terminal
+bindsym $mod+Return exec alacritty
+
+# kill focused window
+bindsym $mod+Shift+Q kill
+
+# start wofi
+bindsym $mod+d exec wofi -a -G -I -S drun
+
+# start ulauncher
+bindsym $mod+Shift+d exec ulauncher-toggle
+
+# lock screen
+bindsym $mod+l exec loginctl lock-session

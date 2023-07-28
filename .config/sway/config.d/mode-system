@@ -1,0 +1,17 @@
+#
+# System shutdown/exit mode
+#
+
+set $mode_system "(l)ock, (e)xit, (s)uspend, (r)eboot, (p)oweroff"
+mode $mode_system {
+     bindsym l exec loginctl lock-session, mode "default"
+     bindsym e exit,                       mode "default"
+     bindsym s exec systemctl suspend,     mode "default"
+     bindsym r exec systemctl reboot,      mode "default"
+     bindsym p exec systemctl poweroff,    mode "default"
+
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
+}
+
+bindsym $mod+Shift+e mode $mode_system

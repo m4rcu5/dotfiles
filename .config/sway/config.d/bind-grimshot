@@ -1,0 +1,13 @@
+#
+# Keybinding for screenshots
+#
+
+set $grimshot_command  grimshot --notify
+set $grimshot_pattern  $(xdg-user-dir PICTURES)/screenshot-$(date "+%Y%m%d-%H%M%S").png
+
+bindsym {
+    Print               exec $grimshot_command copy output && wl-paste > $grimshot_pattern
+    Alt+Print           exec $grimshot_command copy window && wl-paste > $grimshot_pattern
+    Ctrl+Print          exec $grimshot_command copy area   && wl-paste > $grimshot_pattern
+}
+

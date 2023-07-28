@@ -1,0 +1,12 @@
+#
+# Shortcuts to control the mako notification daemon
+#
+
+# dismiss a single notification
+bindsym $mod+period       exec makoctl dismiss
+
+# dismiss all notifications
+bindsym $mod+Shift+period exec makoctl dismiss -a
+
+# restore the last notification
+bindsym $mod+grave        exec makoctl restore

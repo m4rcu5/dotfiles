@@ -1,0 +1,20 @@
+#
+# Media controls
+#
+# Volume and play/pause
+
+set $mode_vuctrl Volume control (Down) -5%, (Up) +5%, (m) mute, (p) play/pause, (,) prev, (.) next, (v) pavucontrol
+mode "$mode_vuctrl" {
+    bindsym Down    exec pactl -- set-sink-volume @DEFAULT_SINK@ '-5%'
+    bindsym Up      exec pactl -- set-sink-volume @DEFAULT_SINK@ '+5%'
+    bindsym m       exec pactl -- set-sink-mute @DEFAULT_SINK@ toggle
+    bindsym p       exec playerctl play-pause
+    bindsym comma   exec playerctl previous
+    bindsym period  exec playerctl next
+    bindsym v       exec pavucontrol, mode "default"
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+bindsym $mod+m mode "$mode_vuctrl"

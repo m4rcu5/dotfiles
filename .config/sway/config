@@ -1,0 +1,111 @@
+# sway config file
+
+# set modifier key to 'windows'
+set $mod Mod4
+
+# font for window titles.
+font pango:Source Sans Pro 10
+
+# load general settings
+include config.d/general
+
+# load default key bindings
+include config.d/bind-exec
+
+# load screenshot keybindings
+include config.d/bind-grimshot
+
+# load key bindings for mako
+include config.d/bind-mako
+
+# load window control key bindings
+include config.d/window-focus
+
+#
+# Configure displays
+#
+
+set $screen_left  DP-3
+set $screen_right DP-4
+
+# output configuration
+output DP-3 pos 0 0
+output DP-4 pos -2160 -840 transform 270
+
+# backgrounds
+output DP-3 bg ~/.backgrounds/klaus-horizontal.png fill
+output DP-4 bg ~/.backgrounds/klaus-vertical.png fill
+
+#
+# Configure inputs
+#
+input type:keyboard {
+    xkb_numlock enabled
+}
+
+# input "1386:21110:Wacom_HID_5276_Finger" {
+#    map_to_output eDP-1
+#}
+#
+#input "1386:21110:Wacom_HID_5276_Pen" {
+#    map_to_output eDP-1
+#}
+
+#
+# Workspace naming
+#
+
+set $ws1 1 
+set $ws2 2 
+    assign [class="^(rambox|hamsket|[fF]erdi)$"] $ws2
+set $ws3 3 
+set $ws4 4 
+set $ws5 5 
+set $ws6 6 
+set $ws7 7 
+set $ws8 8 
+    assign [class="^(akregator|Icedove|Mail|Thunderbird)$"] $ws8
+set $ws9 9 
+    assign [class="^VirtualBox (Machine|Manager)$"] $ws9
+        for_window [class="^VirtualBox (Machine|Manager)$"] floating disable border none
+set $ws10 10 
+
+# load workspace keybindings
+include config.d/bind-workspace
+
+# load various command modes
+include config.d/mode-resize
+include config.d/mode-system
+include config.d/mode-media
+
+# load color scheme
+include config.d/color-scheme.arc-darker
+
+# start the waybar
+bar swaybar_command waybar
+
+# load scratchpad assignments
+include config.d/scratchpad
+
+# load window specific assignments
+include config.d/for-window
+
+#
+# Swaylock
+#
+set $lockscreen swaylock -f -c "#000000" -s fill -i DP-3:~/.backgrounds/klaus-horizontal.png -i DP-4:~/.backgrounds/klaus-vertical.png -l
+
+# start the idle watcher
+exec swayidle -w \
+        timeout  60  'makoctl mode -a away'        \
+        resume       'makoctl mode -r away'        \
+        timeout 300  'loginctl lock-session'       \
+        timeout 600  'swaymsg "output * dpms off"' \
+        resume       'swaymsg "output * dpms on"'  \
+        before-sleep 'loginctl lock-session'       \
+        lock '$lockscreen'
+
+#
+# Fedora's sway integrations
+#
+include /etc/sway/config.d/*

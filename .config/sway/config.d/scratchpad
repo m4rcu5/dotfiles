@@ -1,0 +1,26 @@
+#
+# Scratchpad setup
+#
+
+# scratchpad bindings
+bindsym $mod+minus  scratchpad show
+bindsym $mod+plus   move scratchpad
+bindsym $mod+c      [con_mark="cherrytree"] scratchpad show
+#bindsym $mod+k      [con_mark="keepass"] scratchpad show
+
+# scratchpad assignments
+#for_window [app_id="org.keepassxc.KeePassXC" window_type="normal"] mark "keepass", floating enable, move scratchpad
+for_window [class="(?i)cherrytree" window_type="normal"] mark "cherrytree", floating enable, move scratchpad
+
+set $app_id_keepassxc org.keepassxc.KeePassXC
+
+for_window {
+    [app_id=$app_id_keepassxc] {
+        move to scratchpad
+        [app_id=$app_id_keepassxc] scratchpad show
+        move position center
+    }
+}
+
+bindsym $mod+k exec swaymsg [app_id=$app_id_keepassxc] scratchpad show || exec gtk-launch $app_id_keepassxc
+#bindsym $mod+k exec gtk-launch $app_id_keepassxc
