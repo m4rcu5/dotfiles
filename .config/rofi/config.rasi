@@ -1,6 +1,0 @@
-configuration {
-	modi: "combi";
-	font: "Source Code Pro 8";
-	combi-modi: "window,drun";
-	theme: "Arc";
-}
