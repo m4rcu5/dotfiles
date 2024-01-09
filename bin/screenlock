@@ -1,0 +1,69 @@
+#!/bin/sh
+
+xresource() {
+    xrdb -query | grep -E "^screensaver\.$1" | sed -r "s/^[^:]+:\s+//" | tail -n 1
+}
+
+# Fetch our screensaver variables from Xresources
+timeout=$(xresource lock)
+dim=$(xresource dim)
+dpms=$(xresource dpms)
+
+configure() {
+    if [ -z $dim ] || [ $dim -eq 0 ]; then
+        # Set only a (default) lock timeout
+        xset s ${tmeout:-600}
+    else
+        # Set a dim timeout as well, if defined
+        xset s $dim ${timeout-600}
+    fi
+
+    if [ -z $dpms ] || [ $dpms -eq 0 ]; then
+        # Disable DMPS
+        xset -dpms
+    else
+        xset dpms $dpms $((dpms * 12 / 10)) $((dpms * 14 / 10))
+    fi
+}
+
+case "$1" in
+    start)
+        configure
+        exec xss-lock --session=${XDG_SESSION_ID} --notifier="$0 dim" --transfer-sleep-lock "$0" lock
+        ;;
+
+    dim)
+        trap "exit 0" TERM INT
+
+        if $(command -v xbacklight &>/dev/null); then
+            # Return to current brightness on exit
+            trap "xbacklight -fps 30 -set $(xbacklight -get); kill %%" EXIT
+
+            # Reduce brightness to 1%
+            xbacklight -fps 15 -set 1
+
+            # Wait until exit
+            sleep infinity &
+            wait
+        fi
+        ;;
+
+    lock)
+        # Restore the screensaver timeouts
+        configure
+
+        # Pause any music players
+        (command -v playerctl >/dev/null 2>&1) && playerctl -a pause
+
+        # Pause the notification daemon
+        dunstctl_state=$(dunstctl is-paused)
+        dunstctl set-paused true
+
+        # Launch i3lock, it will close the inherited sleep-lock
+        i3lock --ignore-empty-password --show-failed-attempts \
+            --image="$HOME/.local/wallpapers/${HOST}-lock.png" --nofork
+
+        # Restore otifications
+        dunstctl set-paused ${dunstctl_state}
+        ;;
+esac

@@ -1,0 +1,10 @@
+[Unit]
+Description=X locker
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=%h/bin/screenlock start
+Restart=on-failure
+
+[Install]
+WantedBy=xsession.target
