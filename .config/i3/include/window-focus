@@ -1,6 +1,6 @@
-#
-# Window and focus controls
-#
+#############################
+# Window and focus controls #
+#############################
 
 # change focus
 bindsym $mod+Left focus left
@@ -15,10 +15,10 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+h splith
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+v splitv
 
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen

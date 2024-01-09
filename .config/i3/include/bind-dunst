@@ -1,0 +1,12 @@
+##############################
+# Shortcuts to control dunst #
+##############################
+
+# dismiss a single notification
+bindsym $mod+period         exec --no-startup-id dunstctl close
+
+# dismiss all notifications
+bindsym $mod+shift+period   exec --no-startup-id dunstctl close-all
+
+# restore the last notification
+bindsym $mod+grave          exec --no-startup-id dunstctl history-pop

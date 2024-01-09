@@ -1,13 +1,17 @@
-#
-# Scratchpad setup
-#
+####################
+# Scratchpad setup #
+####################
 
 # scratchpad bindings
 bindsym $mod+minus  scratchpad show
 bindsym $mod+plus   move scratchpad
-bindsym $mod+c      [con_mark="cherrytree"] scratchpad show
-bindsym $mod+k      [con_mark="keepass"] scratchpad show
 
 # scratchpad assignments
-for_window [class="(?i)keepassxc"  window_type="normal"] mark "keepass", floating enable, move scratchpad
-for_window [class="(?i)cherrytree" window_type="normal"] mark "cherrytree", floating enable, move scratchpad
+#for_window [class="(?i)cherrytree" window_type="normal"] mark "cherrytree", floating enable, move scratchpad
+for_window [class="(?i)keepassxc"  window_type="normal"] mark "keepass", \
+    floating enable, move scratchpad, [con_mark="keepass"] scratchpad show, move position center
+
+# show / launch bindings
+#bindsym $mod+c      [con_mark="cherrytree"] scratchpad show
+bindsym $mod+k exec i3-msg [con_mark="keepass"] scratchpad show || exec gtk-launch org.keepassxc.KeePassXC
+

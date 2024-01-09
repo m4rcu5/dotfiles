@@ -1,6 +1,7 @@
-#
-# Workspace keybindings
-#
+#########################
+# Workspace keybindings #
+#########################
+
 # Needs workspaces to be named and assigned to $ws variables.
 
 # switch to workspace

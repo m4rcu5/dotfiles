@@ -1,6 +1,8 @@
-#
-# Color scheme: Arc-Darker
-#
+############################
+# Color scheme: Arc-Darker #
+############################
+
+font $win-font
 
 set $mode-color                  #f27835
 set $base-color-focused          #5294e2
@@ -16,10 +18,9 @@ set $text-color-urgent           #ffffff
 set $text-color-placeholder      #ffffff
 
 # bar color scheme
-set $bar-font             pango:Source Code Pro, Awesome 10
-set $bar-background-color #292c36
-set $bar-statusline-color #ffffff
-set $bar-seperator-color  #bac3cf
+set $bar-background-color        #292c36
+set $bar-statusline-color        #ffffff
+set $bar-seperator-color         #bac3cf
 
 # class                 border                       backgr.                      text                         indicator   child_border
 client.focused          $base-color-focused          $base-color-focused          $text-color-focused          $mode-color $base-color-focused

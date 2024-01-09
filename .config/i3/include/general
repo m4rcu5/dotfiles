@@ -1,6 +1,6 @@
-#
-# General i3 settings
-#
+####################
+# General settings #
+####################
 
 # use mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -24,8 +24,8 @@ workspace_auto_back_and_forth yes
 floating_minimum_size 75 x 50
 floating_maximum_size -1 x -1
 
-# change borders
-new_window 1pixel
+# change default borders to 1px
+default_border pixel 1
 
 # reload the configuration file
 bindsym $mod+Shift+c reload

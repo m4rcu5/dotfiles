@@ -1,7 +1,6 @@
-#
-# Resize window mode 
-#
-# You can also use the mouse for that
+######################
+# Resize window mode #
+######################
 
 mode "resize" {
     # These bindings trigger as soon as you enter the resize mode

@@ -1,0 +1,10 @@
+##############################
+# Keybinding for screenshots #
+##############################
+
+set $screenshot_path     $(xdg-user-dir PICTURES)/
+set $screenshot_command  flameshot gui -c
+
+bindsym Print       exec --no-startup-id $screenshot_command
+bindsym Ctrl+Print  exec --no-startup-id $screenshot_command -p $screenshot_path
+
