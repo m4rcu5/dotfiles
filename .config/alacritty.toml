@@ -1,0 +1,95 @@
+[colors]
+draw_bold_text_with_bright_colors = true
+
+# The colorscheme is 'borrowed' from GRML
+[colors.bright]
+black   = "#3F3F3F"
+blue    = "#847FC4"
+cyan    = "#84CBBE"
+green   = "#AFCB66"
+magenta = "#A774C4"
+red     = "#D4746A"
+white   = "#C5C5C5"
+yellow  = "#D4BE66"
+
+[colors.normal]
+black   = "#262626"
+blue    = "#5A89C4"
+cyan    = "#5ACBBE"
+green   = "#98CB3C"
+magenta = "#904AC4"
+red     = "#D44A40"
+white   = "#A5A5A5"
+yellow  = "#D4B63C"
+
+[colors.primary]
+background = "#1C1C1C"
+foreground = "#EFEFEF"
+
+[cursor]
+blink_interval   = 550
+unfocused_hollow = true
+
+[cursor.style]
+blinking = "On"
+shape    = "Block"
+
+# Set a more universal compatible terminal
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 10
+
+[font.bold]
+family = "xos4 Terminus"
+style  = "Bold"
+
+[font.bold_italic]
+family = "xos4 Terminus"
+style  = "Bold Italic"
+
+[font.italic]
+family = "xos4 Terminus"
+style  = "Italic"
+
+[font.normal]
+family = "xos4 Terminus"
+style  = "Regular"
+
+# Copy/Paste for laptop users
+[[keyboard.bindings]]
+action = "Paste"
+key    = "V"
+mods   = "Control|Alt"
+
+[[keyboard.bindings]]
+action = "Copy"
+key    = "C"
+mods   = "Control|Alt"
+
+# Font size controls (useful for presentations)
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key    = "Equals"
+mods   = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key    = "Minus"
+mods   = "Control"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key    = "Minus"
+mods   = "Control|Shift"
+
+[selection]
+semantic_escape_chars = "`\"',;@&*=|?: ()[]{}<>\t"
+
+[window]
+opacity = 0.9
+
+[window.padding]
+x = 2
+y = 2
