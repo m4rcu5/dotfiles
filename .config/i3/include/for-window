@@ -18,6 +18,7 @@ for_window [class="(?i)pavucontrol"]                    floating enable
 for_window [class="(?i)pcmanfm"]                        floating enable
 for_window [class="(?i)file-roller"]                    floating enable
 for_window [class="(?i)(?:own|next)cloud"]              floating enable
+for_window [class="(?i)1Password"]                      floating enable
 for_window [class="(?i)vlc"]                            floating enable
 for_window [class="(?i)feh"]                            floating enable
 
