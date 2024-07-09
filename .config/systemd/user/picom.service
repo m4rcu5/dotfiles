@@ -1,0 +1,10 @@
+[Unit]
+Description=Compositor for X11
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/picom --dbus
+Restart=on-failure
+
+[Install]
+WantedBy=xsession.target
