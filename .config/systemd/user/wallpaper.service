@@ -1,0 +1,10 @@
+[Unit]
+Description=Wallpaper with feh
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/feh --no-fehbg --no-xinerama --bg-fill %h/.local/wallpapers/%H.png
+Type=oneshot
+
+[Install]
+WantedBy=xsession.target

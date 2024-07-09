@@ -1,0 +1,16 @@
+[Unit]
+Description=XSETTINGS daemon
+PartOf=graphical-session.target
+
+[Service]
+Restart=on-failure
+ExecStartPre=%h/bin/xsettingsd-setup
+ExecStart=/usr/bin/xsettingsd -c %h/.xsettingsd
+ExecReload=%h/bin/xsettingsd-setup
+ExecReload=/usr/bin/kill -HUP $MAINPID
+
+# Restart i3 (it uses Xft.dpi)
+ExecReload=-/usr/bin/i3-msg restart
+
+[Install]
+WantedBy=xsession.target
