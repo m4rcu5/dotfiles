@@ -1,10 +1,8 @@
-# Download the best file format available.
---format best
-
 # Download English subtitle.
 --write-sub
 --sub-lang en
 --convert-subs srt
 
 # Save to ~/Downloads directory.
---output "$HOME/Downloads/%(title)s.%(ext)s"
+--output "%(title)s.%(ext)s"
+--paths "$HOME/Downloads/"
