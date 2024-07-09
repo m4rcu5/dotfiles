@@ -4,52 +4,35 @@
 # --- Query Feeds
 "query:All GitHub Commits:tags # \"commits\""
 "query:All Software Releases:tags # \"releases\""
-"query:All Twitter Feeds:tags # \"twitter\""
 
 
 # --- Fun
-http://moviecode.tumblr.com/rss fun
+http://moviecode.tumblr.com/rss                         fun
 
 # --- Comics
 http://xkcd.com/atom.xml                                webcomic
 http://lizclimo.tumblr.com/rss                          webcomic
 http://sarahcandersen.com/rss                           webcomic
-http://www.mrlovenstein.com/rss.xml                     webcomic
 https://turnoff.us/feed.xml                             webcomic
-https://twitrss.me/twitter_user_to_rss/?user=ralphruthe webcomic twitter "~@ralphruthe"
 
 # --- News / Tech
 http://feeds.arstechnica.com/arstechnica/technology-lab news technology
 http://feeds.arstechnica.com/arstechnica/science        news science
 
-http://www.engadget.com/rss.xml                         news technology
+http://www.engadget.com/rss.xml                         news technology "~Engadget"
 http://www.phoronix.com/rss.php                         news technology
-http://feeds.gawker.com/gizmodo/full                    news technology
+https://gizmodo.com/rss                                 news technology
 http://www.reddit.com/r/technology/.rss                 news technology
 
 http://news.ycombinator.com/rss                         news technology security "~Hacker News" 
 http://rss.slashdot.org/Slashdot/slashdot               news technology security
 http://thehackernews.com/feeds/posts/default?alt=rss    news technology security
 https://www.bleepingcomputer.com/feed/                  news technology security "~BleepingComputer"
-https://www.ncsc.nl/rss/beveiligingsadviezen            news technology security "~NCSC Kwetsbaarheden"
-
-# --- Linux
-https://twitrss.me/twitter_user_to_rss/?user=bashoneliners  linux twitter "~@bashoneliners"
+https://advisories.ncsc.nl/rss/advisories               news technology security "~NCSC Kwetsbaarheden"
 
 # --- Engineering
-https://twitrss.me/twitter_user_to_rss/?user=eevblog        engineering twitter "~@eevblog"
-https://hackaday.com/feed/                                  engineering
+https://hackaday.com/feed/                              engineering
 
 # --- Blogs
 http://feeds.feedburner.com/codinghorror/               blog hacker
-
-# --- Software Releases
-https://discourse.chef.io/c/chef-release.rss            releases "!Chef Releases"
-https://discourse.chef.io/c/chef-security.rss           releases "!Chef Security"
-
-https://github.com/saenzramiro/rambox/releases.atom     releases "!Rambox"
-
-# --- Github Commits
-https://github.com/JanLo/MQTT433gateway/commits/refactoring.atom commits "!MQTT443gateway"
-
 

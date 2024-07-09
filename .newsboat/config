@@ -9,19 +9,14 @@ refresh-on-startup yes
 # reading preferences
 goto-first-unread yes
 show-read-feeds no
-#show-read-articles no
 prepopulate-query-feeds yes
 
 # external viewers
-browser "firefox %u"
-player "mplayer"
+browser "xdg-open %u"
+player "mpv"
 
-# html rendering
-html-renderer "w3m -dump -T text/HTML -cols 72"
-
-# paths
-error-log "~/.newsboat/error.log"
-save-path "~/.newsboat/saved_articles"
+# download path
+save-path "~/Downloads"
 
 # desktop notifications
 notify-format "Newsboat: %d new articles (%n unread articles, %f unread feeds)"
