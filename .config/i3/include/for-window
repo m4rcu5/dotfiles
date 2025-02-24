@@ -26,9 +26,17 @@ for_window [class="(?i)feh"]                            floating enable
 for_window [class="librewolf-(?:.*)"]                           floating enable
 for_window [class="librewolf-(?:.*)" window_role="browser"]     floating disable
 
+# app: Steam
+for_window [class="^(?i)steam$"]                        floating enable
+for_window [class="^(?i)steam$"]                        floating enable
+for_window [class="^(?i)steam$" title="^Steam$"]        floating disable
+
 # app: Thunderbird
 for_window [class="(?i)thunderbird" window_role="Msgcompose"]   floating enable
 for_window [class="(?i)thunderbird" instance="Enigmail"]        floating enable
+
+# app: Virtualbox
+for_window [class="(?i)VirtualBox" title="- Settings$"] floating enable
 
 # app: Zoom
 for_window [class="zoom"]                               floating enable
