@@ -1,0 +1,10 @@
+[Unit]
+Description=Forward freedesktop.org Idle Inhibition Service calls to Xss
+PartOf=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/xssproxy
+Restart=on-failure
+
+[Install]
+WantedBy=xsession.target
