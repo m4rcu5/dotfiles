@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# Fetch the DPI and RGBA settings from loaded Xresources
+dpi=$(xrdb -query | awk '/Xft\.dpi/ {print $2}')
+rgb=$(xrdb -query | awk '/Xft\.rgba/ {print $2}')
+
+if [ -z $dpi ] || [ -z $rgb ]; then
+    echo "no dpi or rgba settings loaded from Xresouces." >&2
+    exit 1
+fi
+
+# Apply DPI settings to Xrandr
+(command -v xrandr >/dev/null) && xrandr --dpi $dpi
+
+# Write new settings file
+cat $HOME/.config/xsettingsd.in \
+    | sed -e "s/@XFT_DPI@/$(( $dpi*1024 ))/"                    \
+    | sed -e "s/@XFT_RGBA@/${rgb}/"                             \
+    | sed -e "s/@GDK_SCALE_FACTOR@/$(( $dpi/96 ))/"             \
+    | sed -e "s/@GDK_UNSCALED_DPI@/$(( $dpi*1024/($dpi/96) ))/" \
+        > ~/.xsettingsd
+
