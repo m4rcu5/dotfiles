@@ -17,3 +17,5 @@ pam-config -d --gnome_keyring
 # re-add without filters
 pam-config -a --gnome_keyring --gnome_keyring-auto_start
 ```
+
+Also enable/install the `gnome-keyring-daemon.service`
