@@ -1,8 +1,5 @@
-" "vim-like" behaviour where removing a line here makes the setting disappear
+" use 'vim-like' behaviour where removing a line here makes the setting disappear
 sanitise tridactyllocal tridactylsync
-
-" color scheme
-colorscheme base16-solarized-light
 
 " hide all gui elements
 guiset_quiet gui none
@@ -13,11 +10,14 @@ guiset_quiet navbar always
 " move the hoverlink to the right
 guiset_quiet hoverlink right
 
+" hide the mode indicator when in Ignore mode
+set modeindicatormodes {"ignore":"false"}
+
 " maximum number of Ex commands and find patterns to store in the command-line history
 set historyresults 1000
 
-" set editorcmd to suckless terminal, or use the defaults on other platforms
-js tri.browserBg.runtime.getPlatformInfo().then(os=>{const editorcmd = os.os=="linux" ? "st vim" : "auto"; tri.config.set("editorcmd", editorcmd)})
+" set editorcmd to vim via i3-sensible-terminal, or use the defaults on other platforms
+js tri.browserBg.runtime.getPlatformInfo().then(os=>{const editorcmd = os.os=="linux" ? "i3-sensible-terminal -e vim -t tridactyl-vim" : "auto"; tri.config.set("editorcmd", editorcmd)})
 
 " sane hinting mode
 set hintfiltermode vimperator-reflow
@@ -44,14 +44,38 @@ bind gD composite tabduplicate | tabdetach
 " unbinds <C-f> from scrolling, use <C-d> instead
 unbind <C-f>
 
-" new reddit is bad
-bindurl reddit.com <Space><Space> urlmodify -t www old
+" find a likely next/previous link and follow it (in current tab)
+bind ]] followpage next
 
 " skip javascript hints on youtube
+" disable hints for invisible elements (no js hinting)
 bindurl youtu((\.be)|(be\.com)) f hint -J
+bindurl youtu((\.be)|(be\.com)) F hint -b -J
+bindurl youtu((\.be)|(be\.com)) tf hint -t -J
 
-" only generate hints for search results
-bindurl google(\.[a-zA-Z0-9]+){1,2}/search f hint -Jc  #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
+" limit selectable links on google
+" https://github.com/glacambre/.dotfiles/blob/master/default/.config/tridactyl/tridactylrc
+bindurl google(\.[a-zA-Z0-9]+){1,2}/search f hint -Jc #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
 bindurl google(\.[a-zA-Z0-9]+){1,2}/search F hint -Jbc #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
+bindurl google(\.[a-zA-Z0-9]+){1,2}/search gf hint -Jtc #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
+bindurl google(\.[a-zA-Z0-9]+){1,2}/search gF hint -Jqbc #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
+
+" disable all default searchurls
+jsb Object.keys(tri.config.get("searchurls")).reduce((prev, u) => prev.catch(()=>{}).then(_ => tri.excmds.setnull("searchurls." + u)), Promise.resolve())
+
+" add our own search engines
+set searchurls.ddg https://duckduckgo.com/html?q=%s
+set searchurls.google https://www.google.com/search?q=%s
+set searchurls.gimages https://www.google.com/search?q=%s&tbm=isch
+set searchurls.gmaps https://www.google.com/maps/search/%s
+set searchurls.github https://github.com/search?utf8=%E2%9C%93&q=%s&ref=simplesearch
+set searchurls.osm https://www.openstreetmap.org/search?query=%s
+set searchurls.reddit https://old.reddit.com/r/%s
+set searchurls.searxbe https://searx.be/?q=%s&categories=general&language=en-US
+set searchurls.wikipedia https://en.wikipedia.org/w/index.php?search=%s&title=Special%3ASearch
+set searchurls.youtube https://www.youtube.com/results?search_query=%s
+
+" default to Google as search engine
+set searchengine google
 
 " vim: set filetype=vim:
