@@ -9,13 +9,17 @@ timeout=$(xresource lock)
 dim=$(xresource dim)
 dpms=$(xresource dpms)
 
+# Set some sane defaults
+timeout=${timeout:-600}
+dim=${dim:-0}
+
 configure() {
-    if [ -z $dim ] || [ $dim -eq 0 ]; then
+    if [ $dim -eq 0 ]; then
         # Set only a (default) lock timeout
-        xset s ${tmeout:-600}
+        xset s ${timeout}
     else
         # Set a dim timeout as well, if defined
-        xset s $dim ${timeout-600}
+        xset s $dim ${timeout}
     fi
 
     if [ -z $dpms ] || [ $dpms -eq 0 ]; then
@@ -29,7 +33,11 @@ configure() {
 case "$1" in
     start)
         configure
-        exec xss-lock --session=${XDG_SESSION_ID} --notifier="$0 dim" --transfer-sleep-lock "$0" lock
+        if [ $dim -eq 0 ]; then
+            exec xss-lock --session=${XDG_SESSION_ID} --transfer-sleep-lock "$0" lock
+        else
+            exec xss-lock --session=${XDG_SESSION_ID} --notifier="$0 dim" --transfer-sleep-lock "$0" lock
+        fi
         ;;
 
     dim)
