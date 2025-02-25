@@ -2,8 +2,8 @@
 
 # Redirect errors to a file in the home directory
 errfile="$HOME/.xsession-errors"
-if ( umask 077 && cp /dev/null "$errfile" 2> /dev/null ); then
-    exec > "$errfile" 2>&1
+if (install -m600 /dev/null "$errfile" 2>/dev/null); then
+    exec &>"$errfile"
 fi
 unset errfile
 
@@ -35,7 +35,7 @@ VARIABLES="${VARIABLES} $(printenv | awk -F= '/^XDG_|QT_/ { print $1 }')"
 systemctl --user import-environment $VARIABLES
 
 # Update DBus activation environment
-if command -v dbus-update-activation-environment >/dev/null 2>&1; then
+if (command -v dbus-update-activation-environment >/dev/null 2>&1); then
     dbus-update-activation-environment $VARIABLES
 fi
 
