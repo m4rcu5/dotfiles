@@ -11,15 +11,15 @@ set $win-font pango:Source Sans Pro 10
 # font for the status bar
 set $bar-font pango:Source Code Pro, Awesome 11
 
-{% include "include/general %}
+{% include "include/general" %}
 
-{% include "include/bind-exec %}
+{% include "include/bind-exec" %}
 
-{% include "include/bind-screenshot %}
+{% include "include/bind-screenshot" %}
 
-{% include "include/bind-dunst %}
+{% include "include/bind-dunst" %}
 
-{% include "include/window-focus %}
+{% include "include/window-focus" %}
 
 ####################
 # Workspace naming #
@@ -40,15 +40,15 @@ set $ws9 9 
         for_window [class="^VirtualBox (Machine|Manager)$"] floating disable border none
 set $ws10 10 
 
-{% include "include/bind-workspace %}
+{% include "include/bind-workspace" %}
 
-{% include "include/mode-resize %}
-{% include "include/mode-system %}
-{% include "include/mode-media %}
+{% include "include/mode-resize" %}
+{% include "include/mode-system" %}
+{% include "include/mode-media" %}
 
-{% include "include/scratchpad %}
+{% include "include/scratchpad" %}
 
-{% include "include/for-window %}
+{% include "include/for-window" %}
 
 {% include "include/color-scheme.arc-darker" %}
 
