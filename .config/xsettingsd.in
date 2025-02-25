@@ -1,0 +1,24 @@
+# GTK Theme
+Net/ThemeName "Arc-Darker"
+Net/IconThemeName "Arc"
+
+# Fonts
+Gtk/FontName "Source Sans Pro 10"
+Gtk/MonospaceFontName "Source Code Pro 10"
+
+# Cursor theme
+Gtk/CursorThemeName "DMZ-Black"
+
+# XFT Font Settings
+Xft/Hinting 1
+Xft/HintStyle "hintslight"
+Xft/Antialias 1
+Xft/DPI @XFT_DPI@
+Xft/RGBA "@XFT_RGBA@"
+
+# Display Scaling
+Gdk/WindowScalingFactor @GDK_SCALE_FACTOR@
+Gdk/UnscaledDPI @GDK_UNSCALED_DPI@
+
+# Enable menu-icons
+Gtk/MenuImages 1
