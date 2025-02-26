@@ -12,13 +12,15 @@ for_window [title="Preferences$"]                       floating enable
 for_window [title="(?:Open|Save) (?:File|Folder|As)"]   floating enable
 
 # floating windows: per applocation
+for_window [class="(?i)authenticator"]                  floating enable
 for_window [class="(?i)blueman-manager"]                floating enable
 for_window [class="(?i)nm-connection-editor"]           floating enable
 for_window [class="(?i)pavucontrol"]                    floating enable
 for_window [class="(?i)pcmanfm"]                        floating enable
 for_window [class="(?i)file-roller"]                    floating enable
+for_window [class="(?i)insync"]                         floating enable
 for_window [class="(?i)(?:own|next)cloud"]              floating enable
-for_window [class="(?i)1Password"]                      floating enable
+for_window [class="(?i)1password"]                      floating enable
 for_window [class="(?i)vlc"]                            floating enable
 for_window [class="(?i)feh"]                            floating enable
 
