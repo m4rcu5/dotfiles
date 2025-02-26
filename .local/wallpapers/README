@@ -1,0 +1,6 @@
+Wallpapers should be a single file containing all displays of the system. Such
+file can be created using ImageMagick. Example:
+# convert -size 6000x3840 xc:black klaus-vertical.png -geometry +0+0 -composite klaus-horizontal.png -geometry +2160+840 -composite wallper.png
+
+The filename should be equal to the hostname of the system.
+
