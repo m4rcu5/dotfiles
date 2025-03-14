@@ -41,7 +41,7 @@ fi
 
 # Spawn D-Bus user session
 if (command -v dbus-launch >/dev/null 2>&1) && [ -z "$DBUS_SESSION_BUS_ADDRESS" ]; then
-    eval "$(dbus-launch --sh-syntax --exit-with-session)"
+    eval $(dbus-launch --sh-syntax --exit-with-session)
 fi
 
 # Spawn session wide ssh-agent
@@ -52,5 +52,9 @@ fi
 # Start the X session target
 systemctl --user start xsession.target
 
-# Exec the window manager
-exec i3
+# Exec the windowmanager with support for SELinux
+if (grep -q selinux /sys/kernel/security/lsm 2>/dev/null); then
+    exec runcon -r unconfined_r -t unconfined_t -- /usr/bin/i3
+else
+    exec /usr/bin/i3
+fi
