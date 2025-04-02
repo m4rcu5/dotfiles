@@ -14,6 +14,7 @@ for_window [title="(?:Open|Save) (?:File|Folder|As)"]   floating enable
 # floating windows: per applocation
 for_window [class="(?i)authenticator"]                  floating enable
 for_window [class="(?i)blueman-manager"]                floating enable
+for_window [class="(?i)easyeffects"]                    floating enable
 for_window [class="(?i)nm-connection-editor"]           floating enable
 for_window [class="(?i)pavucontrol"]                    floating enable
 for_window [class="(?i)pcmanfm"]                        floating enable
@@ -39,6 +40,7 @@ for_window [class="(?i)thunderbird" instance="Enigmail"]        floating enable
 
 # app: Virtualbox
 for_window [class="(?i)VirtualBox" title="- Settings$"] floating enable
+for_window [class="(?1)^VirtualBox (Machine|Manager)$"] border none
 
 # app: Zoom
 for_window [class="zoom"]                               floating enable

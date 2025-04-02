@@ -26,24 +26,45 @@ set $bar-font pango:Source Code Pro, Awesome 11
 ####################
 
 set $ws1 1 
-set $ws2 2 
-    assign [class="^(rambox|hamsket|[fF]erdi)$"] $ws2
-set $ws3 3 
-set $ws4 4 
-set $ws5 5 
-set $ws6 6 
+set $ws2 2 
+set $ws3 3 _
+set $ws4 4 
+    assign [class="^(?i)(Ferdium)$"] $ws4
+set $ws5 5 
+set $ws6 6 
 set $ws7 7 
-set $ws8 8 
-    assign [class="^(akregator|Icedove|Mail|Thunderbird)$"] $ws8
+set $ws8 8 
 set $ws9 9 
-    assign [class="^VirtualBox (Machine|Manager)$"] $ws9
-        for_window [class="^VirtualBox (Machine|Manager)$"] floating disable border none
-set $ws10 10 
+    assign [class="^(?i)org.remmina.Remmina$"] $ws9
+    assign [class="^(?i)(VirtualBox (Machine|Manager))$"] $ws9
+set $ws10 10 
+    assign [class="^(?i)(Mail|Thunderbird(-esr)?)$"] $ws10
+
+#######################
+# Display assignments #
+#######################
+set $dp_left  DP-1
+set $dp_right DP-3
+
+workspace "$ws1" output $dp_left
+workspace "$ws2" output $dp_left
+workspace "$ws3" output $dp_left
+workspace "$ws4" output $dp_left
+workspace "$ws5" output $dp_left
+workspace "$ws6" output $dp_right
+workspace "$ws7" output $dp_right
+workspace "$ws8" output $dp_right
+workspace "$ws9" output $dp_right
+workspace "$ws10" output $dp_right
 
 {% include "include/bind-workspace" %}
 
+{% include "include/mode-xrandr.{{ yadm.hostname }}" %}
+
 {% include "include/mode-resize" %}
+
 {% include "include/mode-system" %}
+
 {% include "include/mode-media" %}
 
 {% include "include/scratchpad" %}
