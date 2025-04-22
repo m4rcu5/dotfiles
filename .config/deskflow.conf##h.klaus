@@ -1,0 +1,26 @@
+section: screens
+    klaus:
+    Heinrich:
+end
+
+section: aliases
+end
+
+section: links
+    klaus:
+        right = heinrich
+    heinrich:
+        left = klaus
+end
+
+section: options
+    protocol = barrier
+    relativeMouseMoves = false
+    clipboardSharing = true
+    clipboardSharingSize = 3072
+    keystroke(Control+Alt+Right) = switchInDirection(right)
+    keystroke(Alt+Control+Left) = switchInDirection(left)
+    mousebutton(6) = mousebutton(4)
+    mousebutton(7) = mousebutton(5)
+end
+
