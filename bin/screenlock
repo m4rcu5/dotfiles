@@ -13,6 +13,18 @@ dpms=$(xresource dpms)
 timeout=${timeout:-600}
 dim=${dim:-0}
 
+# Function to detect if on AC power
+is_on_ac_power() {
+    for ac_path in /sys/class/power_supply/A{C,CAD,C0,DP1}/online; do
+        if [ -r "$ac_path" ]; then
+            [ "$(cat "$ac_path" 2>/dev/null)" = "1" ] && return 0
+        fi
+    done
+
+    # If no AC adapter found, assume desktop (AC power)
+    return 0
+}
+
 configure() {
     if [ $dim -eq 0 ]; then
         # Set only a (default) lock timeout
@@ -43,7 +55,7 @@ case "$1" in
     dim)
         trap "exit 0" TERM INT
 
-        if $(command -v xbacklight &>/dev/null); then
+        if $(command -v xbacklight &>/dev/null) && !is_on_ac_power; then
             # Return to current brightness on exit
             trap "xbacklight -fps 30 -set $(xbacklight -get); kill %%" EXIT
 
@@ -68,8 +80,8 @@ case "$1" in
         dunstctl set-paused true
 
         # Launch i3lock, it will close the inherited sleep-lock
-        i3lock --ignore-empty-password --show-failed-attempts \
-            --image="$HOME/.local/wallpapers/${HOST}-lock.png" --nofork
+        i3lock --show-failed-attempts --nofork \
+            --image="$HOME/.local/wallpapers/${HOST}-lock.png"
 
         # Restore otifications
         dunstctl set-paused ${dunstctl_state}
