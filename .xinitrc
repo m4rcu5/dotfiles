@@ -29,8 +29,11 @@ export QT_QPA_PLATFORMTHEME=gtk2
 # GTK3 apps try to contact org.a11y.Bus. Disable that.
 export NO_AT_BRIDGE=1
 
+# Let Mozilla apps (and derivatives) use the XI2 features
+export MOZ_USE_XINPUT2=1
+
 # Update systemd user environment
-VARIABLES="HOST DISPLAY XAUTHORITY NO_AT_BRIDGE"
+VARIABLES="HOST DISPLAY XAUTHORITY NO_AT_BRIDGE MOZ_USE_XINPUT2"
 VARIABLES="${VARIABLES} $(printenv | awk -F= '/^XDG_|QT_/ { print $1 }')"
 systemctl --user import-environment $VARIABLES
 
