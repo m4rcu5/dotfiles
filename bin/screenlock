@@ -1,51 +1,51 @@
 #!/bin/sh
 
 xresource() {
-    xrdb -query | grep -E "^screensaver\.$1" | sed -r "s/^[^:]+:\s+//" | tail -n 1
+    xrdb -query |
+      grep -m1 -E "^screensaver\.${1//./\\.}" |         # first matching line
+      sed -r 's/^[^:]+:[[:space:]]+//'                  # strip “KEY: ” prefix
 }
 
-# Fetch our screensaver variables from Xresources
-timeout=$(xresource lock)
-dim=$(xresource dim)
-dpms=$(xresource dpms)
+# Read configuration from Xresources (with sane defaults)
+timeout=$(xresource lock)   ; timeout=${timeout:-600}   # seconds until lock
+dim=$(xresource dim)        ; dim=${dim:-0}             # seconds until dim
+dpms=$(xresource dpms)      ; dpms=${dpms:-900}         # DPMS standby time
 
-# Set some sane defaults
-timeout=${timeout:-600}
-dim=${dim:-0}
-
-# Function to detect if on AC power
+# Detect AC power. Returns 0 on AC, 1 on battery / unknown.
 is_on_ac_power() {
-    for ac_path in /sys/class/power_supply/A{C,CAD,C0,DP1}/online; do
-        if [ -r "$ac_path" ]; then
-            [ "$(cat "$ac_path" 2>/dev/null)" = "1" ] && return 0
-        fi
+    for ac_path in /sys/class/power_supply/AC{,AD,C0,DP1}/online; do
+        [ -r "$ac_path" ] || continue
+        [ "$(cat "$ac_path")" = 1 ] && return 0
     done
 
-    # If no AC adapter found, assume desktop (AC power)
-    return 0
+    # default: not on AC
+    return 1
 }
 
+# Apply xset screensaver + DPMS settings
 configure() {
-    if [ $dim -eq 0 ]; then
+    if [ "$dim" -eq 0 ]; then
         # Set only a (default) lock timeout
-        xset s ${timeout}
+        xset s "$timeout"
     else
-        # Set a dim timeout as well, if defined
-        xset s $dim ${timeout}
+        # Set a dim + lock timeout
+        xset s "$dim" "$timeout"
     fi
 
-    if [ -z $dpms ] || [ $dpms -eq 0 ]; then
-        # Disable DMPS
-        xset -dpms
+    if [ "$dpms" -gt 0 ]; then
+        # Enable DPMS
+        xset dpms "$dpms" $((dpms*12/10)) $((dpms*14/10))
     else
-        xset dpms $dpms $((dpms * 12 / 10)) $((dpms * 14 / 10))
+        # Disable DPMS
+        xset -dpms
     fi
 }
 
 case "$1" in
     start)
         configure
-        if [ $dim -eq 0 ]; then
+
+        if [ "$dim" -eq 0 ]; then
             exec xss-lock --session=${XDG_SESSION_ID} --transfer-sleep-lock "$0" lock
         else
             exec xss-lock --session=${XDG_SESSION_ID} --notifier="$0 dim" --transfer-sleep-lock "$0" lock
@@ -55,7 +55,7 @@ case "$1" in
     dim)
         trap "exit 0" TERM INT
 
-        if $(command -v xbacklight &>/dev/null) && !is_on_ac_power; then
+        if command -v xbacklight &>/dev/null && ! is_on_ac_power; then
             # Return to current brightness on exit
             trap "xbacklight -fps 30 -set $(xbacklight -get); kill %%" EXIT
 
@@ -73,7 +73,7 @@ case "$1" in
         configure
 
         # Pause any music players
-        (command -v playerctl >/dev/null 2>&1) && playerctl -a pause
+        command -v playerctl >/dev/null 2>&1 && playerctl -a pause
 
         # Pause the notification daemon
         dunstctl_state=$(dunstctl is-paused)
@@ -83,7 +83,7 @@ case "$1" in
         i3lock --show-failed-attempts --nofork \
             --image="$HOME/.local/wallpapers/${HOST}-lock.png"
 
-        # Restore otifications
-        dunstctl set-paused ${dunstctl_state}
+        # Restore notifications
+        dunstctl set-paused "${dunstctl_state}"
         ;;
 esac
