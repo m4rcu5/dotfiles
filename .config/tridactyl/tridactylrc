@@ -30,6 +30,9 @@ set tabopenpos last
 " prevent websites from stealing focus
 autocmd TabEnter .* unfocus
 
+" disable on OnShape's CAD which uses many bindings
+autocmd DocStart ^https://cadi\.onshape\.com mode ignore
+
 " allow Ctrl-a to select all in the commandline
 unbind --mode=ex <C-a>
 
@@ -59,6 +62,7 @@ bindurl google(\.[a-zA-Z0-9]+){1,2}/search f hint -Jc #top_nav a, #search a, .ca
 bindurl google(\.[a-zA-Z0-9]+){1,2}/search F hint -Jbc #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
 bindurl google(\.[a-zA-Z0-9]+){1,2}/search gf hint -Jtc #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
 bindurl google(\.[a-zA-Z0-9]+){1,2}/search gF hint -Jqbc #top_nav a, #search a, .card-section a, a.fl, #pnnext, #pnprev
+bindurl google(\.[a-zA-Z0-9]+){1,2}/search gi composite focusinput -l ; text.end_of_line
 
 " disable all default searchurls
 jsb Object.keys(tri.config.get("searchurls")).reduce((prev, u) => prev.catch(()=>{}).then(_ => tri.excmds.setnull("searchurls." + u)), Promise.resolve())
