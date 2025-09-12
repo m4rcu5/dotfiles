@@ -1,0 +1,27 @@
+# -- Icons
+[icons]
+icons = "awesome5"
+
+# -- Custom icon overrides
+[icons.overrides]
+backlight = ""
+cpu = ""
+
+# -- Use i3bar native colors
+[theme]
+theme = "native"
+
+# -- Arc-Darker theme settings
+[theme.overrides]
+separator_fg = "#5c616c"
+
+good_fg     = "#73d216"
+info_fg     = "#5294e2"
+warning_fg  = "#F27835"
+critical_fg = "#FC4138"
+
+separator   = "|"
+
+# -- Global settings
+[settings]
+interval    = 2

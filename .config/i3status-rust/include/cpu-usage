@@ -1,0 +1,5 @@
+# -- CPU usage, load, frequency with 5min load avg
+[[block]]
+block       = "cpu"
+format      = " $icon $utilization @ $frequency "
+format_alt  = " $icon $barchart $utilization "

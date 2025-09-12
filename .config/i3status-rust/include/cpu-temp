@@ -1,0 +1,5 @@
+# -- CPU temperature with °C formatting
+[[block]]
+block       = "temperature"
+format      = " $icon $max "
+format_alt  = " $icon $min min, $max max, $average avg "
