@@ -18,7 +18,7 @@ for_window [class="(?i)easyeffects"]                    floating enable
 for_window [class="(?i)nm-connection-editor"]           floating enable
 for_window [class="(?i)pavucontrol"]                    floating enable
 for_window [class="(?i)pcmanfm"]                        floating enable
-for_window [class="(?i)file-roller"]                    floating enable
+for_window [class="(?i)engrampa"]                       floating enable
 for_window [class="(?i)insync"]                         floating enable
 for_window [class="(?i)(?:own|next)cloud"]              floating enable
 for_window [class="(?i)1password"]                      floating enable
@@ -35,8 +35,9 @@ for_window [class="^(?i)steam$"]                        floating enable
 for_window [class="^(?i)steam$" title="^Steam$"]        floating disable
 
 # app: Thunderbird
-for_window [class="(?i)thunderbird" window_role="Msgcompose"]   floating enable
-for_window [class="(?i)thunderbird" instance="Enigmail"]        floating enable
+for_window [class="(?i)thunderbird" window_role="Msgcompose"]       floating enable
+for_window [class="(?i)thunderbird" window_role="messageWindow"]    floating enable
+for_window [class="(?i)thunderbird" instance="Enigmail"]            floating enable
 
 # app: Virtualbox
 for_window [class="(?i)VirtualBox" title="- Settings$"] floating enable
