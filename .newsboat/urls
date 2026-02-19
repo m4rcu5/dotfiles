@@ -24,7 +24,7 @@ http://www.phoronix.com/rss.php                         news technology
 https://gizmodo.com/rss                                 news technology
 http://www.reddit.com/r/technology/.rss                 news technology
 
-http://news.ycombinator.com/rss                         news technology security "~Hacker News" 
+https://hnrss.org/newest?points=100                     news technology security "~Hacker News" 
 http://rss.slashdot.org/Slashdot/slashdot               news technology security
 http://thehackernews.com/feeds/posts/default?alt=rss    news technology security
 https://www.bleepingcomputer.com/feed/                  news technology security "~BleepingComputer"
@@ -35,4 +35,4 @@ https://hackaday.com/feed/                              engineering
 
 # --- Blogs
 http://feeds.feedburner.com/codinghorror/               blog hacker
-
+http://dominique.leuenberger.net/blog/feed              blog opensuse
