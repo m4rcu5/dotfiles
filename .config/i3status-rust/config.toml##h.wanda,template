@@ -36,6 +36,7 @@ interval    = 30
 full_format = " $icon ($percentage) "
 empty_format = " $icon $time_remaining ($percentage) "
 format      = " $icon $time_remaining ($percentage) "
+info        = -1
 
 # -- Unified wired / wireless network
 [[block]]

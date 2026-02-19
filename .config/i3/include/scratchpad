@@ -10,8 +10,11 @@ bindsym $mod+plus   move scratchpad
 #for_window [class="(?i)cherrytree" window_type="normal"] mark "cherrytree", floating enable, move scratchpad
 for_window [class="(?i)keepassxc"  window_type="normal"] mark "keepass", \
     floating enable, move scratchpad, [con_mark="keepass"] scratchpad show, move position center
+for_window [class="(?i)1password"  window_type="normal"] mark "1password", \
+    floating enable, move scratchpad, [con_mark="1password"] scratchpad show, move position center
 
 # show / launch bindings
 #bindsym $mod+c      [con_mark="cherrytree"] scratchpad show
-bindsym $mod+k exec i3-msg [con_mark="keepass"] scratchpad show || exec gtk-launch org.keepassxc.KeePassXC
+bindsym $mod+k          exec i3-msg [con_mark="keepass"] scratchpad show || exec gtk-launch org.keepassxc.KeePassXC
+bindsym $mod+shift+k    exec i3-msg [con_mark="1password"] scratchpad show || exec gtk-launch 1password
 
