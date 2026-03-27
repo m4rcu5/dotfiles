@@ -21,7 +21,3 @@ warning_fg  = "#F27835"
 critical_fg = "#FC4138"
 
 separator   = "|"
-
-# -- Global settings
-[settings]
-interval    = 2
