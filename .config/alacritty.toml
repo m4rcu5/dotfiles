@@ -84,6 +84,12 @@ action = "ResetFontSize"
 key    = "Minus"
 mods   = "Control|Shift"
 
+# Newline binding
+[[keyboard.bindings]]
+key = "Return"
+mods = "Shift"
+chars = "\u001B\r"
+
 [selection]
 semantic_escape_chars = "`\"',;@&*=|?: ()[]{}<>\t"
 
